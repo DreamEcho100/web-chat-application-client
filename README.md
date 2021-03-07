@@ -1,5 +1,7 @@
 # web-chat-application-client
 
+Follwing the 'Node.js and React: Build a complete web chat application' Udemy course.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
