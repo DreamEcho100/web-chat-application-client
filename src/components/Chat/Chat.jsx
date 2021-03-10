@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useSelector } from 'react-redux';
+
+import './Chat.css';
+
+import Navbar from './components/Navbar/Navbar';
 
 const Chat = () => {
 	const user = useSelector((state) => state.authReducer.user);
 
 	return (
-		<div>
-			<h1>Chat</h1>
-			<p>
-				Welcome {user.firstName} {user.lastName}
-			</p>
-		</div>
+		<Fragment>
+			<Navbar />
+		</Fragment>
 	);
 };
 

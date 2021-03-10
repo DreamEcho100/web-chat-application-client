@@ -1,0 +1,79 @@
+#navbar {
+	display: flex;
+	justify-content: space-between;
+	height: 6rem;
+	background-color: var(--bg-main);
+	padding: 0 0.5em;
+
+	h2 {
+		display: flex;
+		align-self: center;
+		color: white;
+	}
+
+	.fa-icon {
+		color: white;
+		margin-left: 0.25em;
+	}
+
+	#profile-menu {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		height: 100%;
+		position: relative;
+		cursor: pointer;
+
+		p {
+			display: flex;
+			align-self: center;
+			color: white;
+		}
+
+		img {
+			display: flex;
+			color: white;
+			align-self: center;
+			margin-right: 0.25em;
+			border-radius: 1em;
+		}
+
+		#profile-options {
+			position: absolute;
+			top: 5rem;
+			border-radius: 0.5rem;
+			padding: 0 0.25em;
+			right: 0.5rem;
+			border: 0.1rem solid #d9d9d9;
+			background-color: white;
+			z-index: 9999;
+
+			p {
+				margin: 0.5em 0.25em;
+				color: black;
+			}
+		}
+
+		form {
+			.input-field {
+				input,
+				select {
+					height: 4rem;
+					width: 100%;
+					box-sizing: border-box;
+				}
+			}
+		}
+
+		.btn-success {
+			background-color: var(--success);
+			border: none;
+			padding: 0.25em;
+			width: 7rem;
+			color: white;
+			border-radius: 1rem;
+			cursor: pointer;
+			font-weight: 600;
+		}
+	}
+}

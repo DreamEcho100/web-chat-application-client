@@ -1,11 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap');
 
 :root {
+	--bg-dark: #4a148c;
 	--bg-main: #793edd;
 	--bg-light: #e2d6f8;
-	--bg-dark: #4a148c;
+	--bg-gray: #f5f6f8;
+	--success: #42b983;
+	--danger: #b94242;
 }
 
 body {
 	font-family: 'Roboto', sans-serif;
+}
+
+.card-shadow {
+	box-shadow: 0.3rem 0.3rem 1.5rem #333;
 }

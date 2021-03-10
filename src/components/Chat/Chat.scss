@@ -1,0 +1,40 @@
+#chat-container {
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background-color: var(--bg-gray);
+	height: 100%;
+	margin: 0 !important;
+
+	#chat-wrap {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		overflow: hidden;
+		padding: 1em 0.5em;
+
+		@media (min-width: 800px) {
+			padding: 1.5em 3em;
+			flex-direction: row;
+		}
+	}
+
+	.online-status {
+		display: inline-block;
+		border-radius: 50%;
+		width: 1rem;
+		height: 1rem;
+	}
+
+	.online {
+		background-color: var(--success);
+	}
+
+	.offline {
+		background-color: var(--danger);
+	}
+}
