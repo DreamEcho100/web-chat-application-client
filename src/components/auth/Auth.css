@@ -109,9 +109,20 @@
   justify-content: center;
   text-align: center;
   margin: auto;
+  transition: 0.3s ease-in;
 }
 #auth-container #auth-card > div #form-section form button:hover, #auth-container #auth-card > div #form-section form button:focus {
-  filter: brightness(0.9);
+  background-color: var(--bg-dark);
+}
+#auth-container #auth-card > div #form-section p a {
+  color: var(--bg-dark);
+  transition: 0.3s ease-in;
+}
+#auth-container #auth-card > div #form-section p a:active, #auth-container #auth-card > div #form-section p a:focus, #auth-container #auth-card > div #form-section p a:visited {
+  color: var(--bg-dark);
+}
+#auth-container #auth-card > div #form-section p a:hover {
+  color: var(--bg-main);
 }
 
 @media screen and (min-width: 900px) {

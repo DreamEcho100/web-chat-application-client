@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
+import AuthService from '../../services/authService';
 
 import './Auth.css';
 
@@ -12,13 +13,13 @@ const Login = () => {
 
 	const handelFormSubmition = (event) => {
 		event.preventDefault();
-		axios
-			.post('http://localhost:5000/login', { email, password })
-			.then((response) => response.data)
-			.then((data) => console.log(data))
-			// .then((data) => console.log(data))
-			.catch((error) => console.error('Error', error));
-		console.log(email, password);
+
+		AuthService.login({ email, password });
+		// axios
+		// 	.post('http://localhost:5000/login', { email, password })
+		// 	.then((response) => response.data)
+		// 	.then((data) => console.log(data))
+		// 	.catch((error) => console.error('Error', error));
 	};
 
 	return (

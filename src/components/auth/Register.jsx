@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+// import axios from 'axios';
+import AuthService from '../../services/authService';
 
 import './Auth.css';
 
@@ -18,7 +19,25 @@ const Register = () => {
 		if (!gender) {
 			return;
 		}
-		console.log(firstName, lastName, gender, email, password);
+
+		AuthService.register({
+			firstName,
+			lastName,
+			email,
+			password,
+			gender,
+		});
+		// axios
+		// 	.post('http://localhost:5000/register', {
+		// 		firstName,
+		// 		lastName,
+		// 		email,
+		// 		password,
+		// 		gender,
+		// 	})
+		// 	.then((response) => response.data)
+		// 	.then((data) => console.log(data))
+		// 	.catch((error) => console.error('Error', error));
 	};
 
 	return (
@@ -58,18 +77,6 @@ const Register = () => {
 							</div>
 
 							<div className='input-field'>
-								<select
-									required
-									onChange={(event) => setGender(event.target.value)}
-									defaultValue='--Choose your gender.'
-								>
-									<option disabled>--Choose your gender.</option>
-									<option value='male'>Male</option>
-									<option value='female'>Female</option>
-								</select>
-							</div>
-
-							<div className='input-field'>
 								<input
 									onChange={(event) => setEmail(event.target.value)}
 									value={email}
@@ -89,6 +96,18 @@ const Register = () => {
 									minLength='6'
 									maxLength='64'
 								/>
+							</div>
+
+							<div className='input-field'>
+								<select
+									required
+									onChange={(event) => setGender(event.target.value)}
+									defaultValue='--Choose your gender.'
+								>
+									<option disabled>--Choose your gender.</option>
+									<option value='male'>Male</option>
+									<option value='female'>Female</option>
+								</select>
 							</div>
 
 							<button type='submit'>Register</button>
