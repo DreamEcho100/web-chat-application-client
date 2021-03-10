@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import axios from 'axios';
-import AuthService from '../../services/authService';
+import { useDispatch } from 'react-redux';
 
 import './Auth.css';
 
 import { ReactComponent as RegisterImage } from '../../assests/images/register.svg';
+// import AuthService from '../../services/authService';
+import { register } from '../../store/actions/auth';
 
-const Register = () => {
+const Register = ({ history }) => {
+	const dispatch = useDispatch();
+
 	const [firstName, setFirstName] = useState('');
 	const [lastName, setLastName] = useState('');
 	const [gender, setGender] = useState('');
@@ -20,13 +24,27 @@ const Register = () => {
 			return;
 		}
 
-		AuthService.register({
-			firstName,
-			lastName,
-			email,
-			password,
-			gender,
-		});
+		dispatch(
+			register(
+				{
+					firstName,
+					lastName,
+					email,
+					password,
+					gender,
+				},
+				history
+			)
+		);
+
+		// AuthService.register({
+		// 	firstName,
+		// 	lastName,
+		// 	email,
+		// 	password,
+		// 	gender,
+		// });
+
 		// axios
 		// 	.post('http://localhost:5000/register', {
 		// 		firstName,
@@ -42,7 +60,7 @@ const Register = () => {
 
 	return (
 		<section id='auth-container'>
-			<div id='auth-card'>
+			<div id='auth-card' className='register'>
 				<div>
 					<div id='image-section'>
 						<RegisterImage />

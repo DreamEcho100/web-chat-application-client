@@ -6,12 +6,13 @@ import './App.css';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import Chat from './components/Chat/Chat';
+import ProtectesRoutes from './components/ProtectesRoutes/ProtectesRoutes';
 
 function App() {
 	return (
 		<Fragment>
 			<Switch>
-				<Route exact path='/' component={Chat} />
+				<ProtectesRoutes exact path='/' component={Chat} />
 				<Route path='/login' component={Login} />
 				<Route path='/register' component={Register} />
 

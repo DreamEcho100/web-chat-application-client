@@ -1,20 +1,26 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 // import axios from 'axios';
-import AuthService from '../../services/authService';
+import { useDispatch } from 'react-redux';
 
 import './Auth.css';
 
 import { ReactComponent as LoginImage } from '../../assests/images/login.svg';
+// import AuthService from '../../services/authService';
+import { login } from '../../store/actions/auth';
 
-const Login = () => {
+const Login = ({ history }) => {
+	const dispatch = useDispatch();
+
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
 	const handelFormSubmition = (event) => {
 		event.preventDefault();
 
-		AuthService.login({ email, password });
+		dispatch(login({ email, password }, history));
+		// AuthService.login({ email, password });
+
 		// axios
 		// 	.post('http://localhost:5000/login', { email, password })
 		// 	.then((response) => response.data)
@@ -24,7 +30,7 @@ const Login = () => {
 
 	return (
 		<section id='auth-container'>
-			<div id='auth-card'>
+			<div id='auth-card' className='login'>
 				<div>
 					<div id='image-section'>
 						<LoginImage />

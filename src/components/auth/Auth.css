@@ -28,23 +28,27 @@
   }
 }
 #auth-container #auth-card > div #image-section {
+  width: 60%;
+  height: 50%;
+  margin-right: auto;
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
   background-color: var(--bg-light);
-  border-bottom-left-radius: 0;
-  max-height: 75%;
-  width: 80%;
-  margin: auto;
 }
-@media (min-width: 800px) {
+@media (max-width: 800px) {
   #auth-container #auth-card > div #image-section {
-    width: 60%;
-    margin-right: auto;
-    border-top-right-radius: 0;
-    border-top-left-radius: 2rem;
-    border-bottom-left-radius: 2rem;
+    height: 50%;
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    border-top-left-radius: 0rem;
+    border-bottom-left-radius: 0rem;
+  }
+  #auth-container #auth-card > div #image-section svg {
+    height: 100%;
   }
 }
 #auth-container #auth-card > div #image-section svg {
-  height: 100%;
   width: 100%;
 }
 #auth-container #auth-card > div #form-section {
@@ -70,7 +74,11 @@
 #auth-container #auth-card > div #form-section form {
   padding: 1rem 2rem;
 }
+#auth-container #auth-card > div #form-section form .input-field {
+  margin: 1em 0;
+}
 #auth-container #auth-card > div #form-section form .input-field input::placeholder {
+  font-weight: 700;
   color: var(--bg-main);
 }
 #auth-container #auth-card > div #form-section form .input-field input:focus::placeholder {
@@ -78,8 +86,11 @@
 }
 #auth-container #auth-card > div #form-section form .input-field input,
 #auth-container #auth-card > div #form-section form .input-field select {
+  max-width: 30rem;
+  font-weight: 600;
+  padding: 0.25em 0.5em;
   border: 0.1rem solid #666;
-  height: 3.4rem;
+  height: 4rem;
   width: 100%;
   color: #333;
   box-sizing: border-box;
@@ -96,8 +107,9 @@
   border-bottom: 0.2rem solid var(--bg-main);
 }
 #auth-container #auth-card > div #form-section form button {
+  max-width: 30rem;
   width: 100%;
-  height: 3.4rem;
+  height: 4rem;
   background-color: var(--bg-main);
   border: none;
   color: white;
@@ -124,27 +136,37 @@
 #auth-container #auth-card > div #form-section p a:hover {
   color: var(--bg-main);
 }
-
-@media screen and (min-width: 900px) {
-  #auth-container #auth-card > div #form-section form .input-field input,
-#auth-container #auth-card > div #form-section form .input-field select {
-    height: 4.5rem;
-  }
-  #auth-container #auth-card > div #form-section form button {
-    height: 4.5rem;
+@media (max-width: 800px) {
+  #auth-container #auth-card.login > div {
+    justify-content: flex-start;
+    width: 90%;
+    margin: 1em auto;
+    height: auto;
   }
 }
+#auth-container #auth-card.login > div #form-section {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#auth-container #auth-card.login > div #form-section h2 {
+  margin-top: 2rem;
+}
+#auth-container #auth-card.login #image-section {
+  height: 50%;
+}
+@media (max-width: 800px) {
+  #auth-container #auth-card.login #image-section {
+    height: 40%;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
 @media screen and (max-width: 800px) {
   :root {
     font-size: 55%;
-  }
-
-  #auth-container #auth-card > div #form-section form .input-field input,
-#auth-container #auth-card > div #form-section form .input-field select {
-    height: 4rem;
-  }
-  #auth-container #auth-card > div #form-section form button {
-    height: 4rem;
   }
 }
 
