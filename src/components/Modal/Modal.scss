@@ -14,13 +14,17 @@
 	justify-content: flex-start;
 
 	.modal-wrapper {
-		max-width: 50rem;
-		min-width: 95%;
 		margin: 1rem auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		height: 100%;
 
 		.modal-container {
 			max-width: 40rem;
-			margin: 0 auto;
+			width: calc(20rem + 30vw);
+			margin: auto;
 			border-radius: 0.2rem;
 			box-shadow: 0 0.2rem 0.8rem rgba(0, 0, 0, 0.33);
 			transition: all 0.3s ease;
