@@ -4,7 +4,7 @@ const AuthService = {
 	login: (data) => {
 		return API.post('/login', data)
 			.then(({ data }) => {
-				API.defaults.headers['Authorization'] = `Bearer ${data.token}`;
+				setHeadersAndStorage(data);
 				return data;
 			})
 			.catch((error) => {
@@ -15,7 +15,7 @@ const AuthService = {
 	register: (data) => {
 		return API.post('/register', data)
 			.then(({ data }) => {
-				API.defaults.headers['Authorization'] = `Bearer ${data.token}`;
+				setHeadersAndStorage(data);
 				return data;
 			})
 			.catch((error) => {
@@ -23,7 +23,17 @@ const AuthService = {
 				throw error;
 			});
 	},
-	logout: () => {},
+	logout: () => {
+		API.defaults.headers['Authorization'] = ``;
+		localStorage.removeItem('oitahcUser');
+		localStorage.removeItem('oitahcToken');
+	},
+};
+
+const setHeadersAndStorage = ({ user, token }) => {
+	API.defaults.headers['Authorization'] = `Bearer ${token}`;
+	localStorage.setItem('oitahcUser', JSON.stringify(user));
+	localStorage.setItem('oitahcToken', JSON.stringify(token));
 };
 
 export default AuthService;

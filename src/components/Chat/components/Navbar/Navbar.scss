@@ -5,10 +5,11 @@
 	background-color: var(--bg-main);
 	padding: 0 0.5em;
 
-	h2 {
+	& > h2 {
 		display: flex;
 		align-self: center;
 		color: white;
+		user-select: none;
 	}
 
 	.fa-icon {
@@ -24,18 +25,33 @@
 		position: relative;
 		cursor: pointer;
 
-		p {
+		* {
+			user-select: none;
+		}
+
+		& > p {
 			display: flex;
 			align-self: center;
 			color: white;
+			margin: 0 0.5em;
 		}
 
-		img {
+		& > img {
 			display: flex;
 			color: white;
 			align-self: center;
 			margin-right: 0.25em;
 			border-radius: 1em;
+			width: 4rem;
+			height: 4rem;
+			border: 1px solid #333;
+			border-radius: 50%;
+		}
+
+		.fa-icon {
+			* {
+				color: white;
+			}
 		}
 
 		#profile-options {
@@ -48,9 +64,18 @@
 			background-color: white;
 			z-index: 9999;
 
+			* {
+				user-select: none;
+			}
+
 			p {
-				margin: 0.5em 0.25em;
+				margin: 0.25em 0.25em;
+				padding: 0.25em 0.25em;
 				color: black;
+
+				&:hover {
+					background-color: #eee;
+				}
 			}
 		}
 

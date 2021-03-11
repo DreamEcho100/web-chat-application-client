@@ -1,9 +1,9 @@
-import { LOGIN, REGISTER } from '../types/auth';
+import { LOGIN, REGISTER, LOGOUT } from '../types/auth';
 
 const initialState = {
-	user: {},
-	token: '',
-	isLoggedIn: false,
+	user: JSON.parse(localStorage.getItem('oitahcUser')) || {},
+	token: JSON.parse(localStorage.getItem('oitahcToken')) || '',
+	isLoggedIn: !!localStorage.getItem('oitahcToken'),
 };
 
 const authReducer = (state = initialState, action) => {
@@ -13,7 +13,7 @@ const authReducer = (state = initialState, action) => {
 		case LOGIN:
 			return {
 				...state,
-				user: payload,
+				user: payload.user,
 				token: payload.token,
 				isLoggedIn: true,
 			};
@@ -23,9 +23,19 @@ const authReducer = (state = initialState, action) => {
 		case REGISTER:
 			return {
 				...state,
-				user: payload,
+				user: payload.user,
 				token: payload.token,
 				isLoggedIn: true,
+			};
+			// eslint-disable-next-line no-unreachable
+			break;
+
+		case LOGOUT:
+			return {
+				...state,
+				user: {},
+				token: '',
+				isLoggedIn: false,
 			};
 			// eslint-disable-next-line no-unreachable
 			break;
