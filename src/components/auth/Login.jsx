@@ -29,8 +29,8 @@ const Login = ({ history }) => {
 	};
 
 	return (
-		<section id='auth-container'>
-			<div id='auth-card' className='login'>
+		<section id='auth-container' className='login'>
+			<div id='auth-card'>
 				<div>
 					<div id='image-section'>
 						<LoginImage />

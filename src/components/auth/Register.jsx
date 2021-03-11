@@ -59,8 +59,8 @@ const Register = ({ history }) => {
 	};
 
 	return (
-		<section id='auth-container'>
-			<div id='auth-card' className='register'>
+		<section id='auth-container' className='register'>
+			<div id='auth-card'>
 				<div>
 					<div id='image-section'>
 						<RegisterImage />

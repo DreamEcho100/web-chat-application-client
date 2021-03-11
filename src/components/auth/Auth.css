@@ -1,13 +1,14 @@
 #auth-container {
-  min-height: 100vh;
   background-color: var(--bg-main);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: fit-content;
 }
 #auth-container #auth-card {
   display: flex;
+  align-items: center;
   justify-content: center;
+  height: 100%;
+  width: 100%;
+  min-height: fit-content;
 }
 #auth-container #auth-card > div {
   display: flex;
@@ -19,6 +20,7 @@
   justify-content: center;
   text-align: center;
   height: 100%;
+  min-height: fit-content;
 }
 @media (min-width: 800px) {
   #auth-container #auth-card > div {
@@ -135,39 +137,6 @@
 }
 #auth-container #auth-card > div #form-section p a:hover {
   color: var(--bg-main);
-}
-@media (max-width: 800px) {
-  #auth-container #auth-card.login > div {
-    justify-content: flex-start;
-    width: 90%;
-    margin: 1em auto;
-    height: auto;
-  }
-}
-#auth-container #auth-card.login > div #form-section {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-#auth-container #auth-card.login > div #form-section h2 {
-  margin-top: 2rem;
-}
-#auth-container #auth-card.login #image-section {
-  height: 50%;
-}
-@media (max-width: 800px) {
-  #auth-container #auth-card.login #image-section {
-    height: 40%;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  :root {
-    font-size: 55%;
-  }
 }
 
 /*# sourceMappingURL=Auth.css.map */

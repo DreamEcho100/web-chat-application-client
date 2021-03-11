@@ -16,3 +16,17 @@ body {
 .card-shadow {
 	box-shadow: 0.3rem 0.3rem 1.5rem #333;
 }
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.user-select-none {
+	user-select: none;
+}
+
+@media screen and (max-width: 800px) {
+	:root {
+		font-size: 55%;
+	}
+}

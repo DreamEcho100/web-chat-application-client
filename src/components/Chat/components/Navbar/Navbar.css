@@ -9,7 +9,6 @@
   display: flex;
   align-self: center;
   color: white;
-  user-select: none;
 }
 #navbar .fa-icon {
   color: white;
@@ -21,12 +20,9 @@
   align-items: center;
   height: 100%;
   position: relative;
-  cursor: pointer;
-}
-#navbar #profile-menu * {
-  user-select: none;
 }
 #navbar #profile-menu > p {
+  width: min-content;
   display: flex;
   align-self: center;
   color: white;
@@ -56,15 +52,13 @@
   background-color: white;
   z-index: 9999;
 }
-#navbar #profile-menu #profile-options * {
-  user-select: none;
-}
-#navbar #profile-menu #profile-options p {
+#navbar #profile-menu #profile-options > p {
+  width: max-content;
   margin: 0.25em 0.25em;
   padding: 0.25em 0.25em;
   color: black;
 }
-#navbar #profile-menu #profile-options p:hover {
+#navbar #profile-menu #profile-options > p:hover {
   background-color: #eee;
 }
 #navbar #profile-menu form .input-field input,
@@ -80,7 +74,6 @@
   width: 7rem;
   color: white;
   border-radius: 1rem;
-  cursor: pointer;
   font-weight: 600;
 }
 
