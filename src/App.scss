@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400&display=swap');
+
+:root {
+	--bg-dark: #4a148c;
+	--bg-main: #793edd;
+	--bg-light: #e2d6f8;
+	--bg-gray: #f5f6f8;
+	--success: #42b983;
+	--danger: #b94242;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	width: 100%;
+	height: 100%;
+}
+
+#chat-app-main-container {
+	width: 100%;
+	height: 100%;
+}
+
+.card-shadow {
+	box-shadow: 0.3rem 0.3rem 1.5rem #333;
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.user-select-none {
+	user-select: none;
+}
+
+form {
+	&.theme-1 {
+		padding: 1rem 2rem;
+
+		.input-field {
+			margin: 0.5em 0;
+
+			input {
+				&::placeholder {
+					font-weight: 300;
+					color: var(--bg-main);
+				}
+				&:focus {
+					&::placeholder {
+						color: #333;
+					}
+				}
+			}
+
+			input,
+			select {
+				background-color: #f2f2f2;
+				border: none;
+				max-width: 30rem;
+				font-weight: 600;
+				padding: 0.25em 0.5em;
+				// border: 0.1rem solid #666;
+				height: 4rem;
+				width: 100%;
+				color: #333;
+				box-sizing: border-box;
+				margin: auto;
+				font-size: var(--small-size-text-2);
+				transition: font-size 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+					font-weight 0.4s ease-in-out,
+					border 0.4s cubic-bezier(0.075, 0.82, 0.165, 1),
+					border-bottom 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+				&:focus {
+					background-color: var(--bg-light);
+					color: #333;
+					border-color: transparent;
+					font-weight: 300;
+					font-size: var(--normal-size-text-1);
+					border-bottom: 0.2rem solid var(--bg-main);
+				}
+			}
+		}
+	}
+
+	button {
+		max-width: 30rem;
+		width: 100%;
+		height: 4rem;
+		background-color: var(--bg-main);
+		border: none;
+		cursor: pointer;
+		font-weight: 600;
+		color: white;
+		border-color: transparent;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		margin: auto;
+		transition: 0.3s ease-in;
+
+		&:hover,
+		&:focus {
+			background-color: var(--bg-dark);
+			color: white;
+		}
+	}
+}
+
+@media screen and (max-width: 800px) {
+	:root {
+		font-size: 55%;
+	}
+}

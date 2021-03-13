@@ -22,7 +22,7 @@
   position: relative;
 }
 #navbar #profile-menu > p {
-  width: min-content;
+  width: max-content;
   display: flex;
   align-self: center;
   color: white;
@@ -53,19 +53,12 @@
   z-index: 9999;
 }
 #navbar #profile-menu #profile-options > p {
-  width: max-content;
   margin: 0.25em 0.25em;
   padding: 0.25em 0.25em;
   color: black;
 }
 #navbar #profile-menu #profile-options > p:hover {
   background-color: #eee;
-}
-#navbar #profile-menu form .input-field input,
-#navbar #profile-menu form .input-field select {
-  height: 4rem;
-  width: 100%;
-  box-sizing: border-box;
 }
 #navbar #profile-menu .btn-success {
   background-color: var(--success);

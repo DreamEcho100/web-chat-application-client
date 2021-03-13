@@ -69,7 +69,7 @@ const Register = ({ history }) => {
 					<div id='form-section'>
 						<h2>Create an account</h2>
 
-						<form onSubmit={handelFormSubmition}>
+						<form className='theme-1' onSubmit={handelFormSubmition}>
 							<div className='input-field'>
 								<input
 									onChange={(event) => setFirstName(event.target.value)}

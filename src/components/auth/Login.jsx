@@ -39,7 +39,7 @@ const Login = ({ history }) => {
 					<div id='form-section'>
 						<h2>Welcome back</h2>
 
-						<form onSubmit={handelFormSubmition}>
+						<form className='theme-1' onSubmit={handelFormSubmition}>
 							<div className='input-field'>
 								<input
 									type='email'

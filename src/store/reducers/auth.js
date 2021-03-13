@@ -1,4 +1,4 @@
-import { LOGIN, REGISTER, LOGOUT } from '../types/auth';
+import { LOGIN, REGISTER, LOGOUT, UPDATE_PROFILE } from '../types';
 
 const initialState = {
 	user: JSON.parse(localStorage.getItem('oitahcUser')) || {},
@@ -36,6 +36,14 @@ const authReducer = (state = initialState, action) => {
 				user: {},
 				token: '',
 				isLoggedIn: false,
+			};
+			// eslint-disable-next-line no-unreachable
+			break;
+
+		case UPDATE_PROFILE:
+			return {
+				...state,
+				user: payload,
 			};
 			// eslint-disable-next-line no-unreachable
 			break;

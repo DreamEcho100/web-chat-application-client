@@ -1,4 +1,4 @@
-import { LOGIN, REGISTER, LOGOUT } from '../types/auth';
+import { LOGIN, REGISTER, LOGOUT, UPDATE_PROFILE } from '../types';
 import AuthService from '../../services/authService';
 
 export const login = (params, history) => (dispatch) => {
@@ -8,7 +8,6 @@ export const login = (params, history) => (dispatch) => {
 			history.push('/');
 		})
 		.catch((error) => {
-			console.error('Auth service error', error);
 			throw error;
 		});
 };
@@ -20,7 +19,6 @@ export const register = (params, history) => (dispatch) => {
 			history.push('/');
 		})
 		.catch((error) => {
-			console.error('Auth service error', error);
 			throw error;
 		});
 };
@@ -28,4 +26,14 @@ export const register = (params, history) => (dispatch) => {
 export const logout = () => (dispatch) => {
 	AuthService.logout();
 	dispatch({ type: LOGOUT });
+};
+
+export const updateProfile = (params) => (dispatch) => {
+	return AuthService.updateProfile(params)
+		.then((data) => {
+			dispatch({ type: UPDATE_PROFILE, payload: data });
+		})
+		.catch((error) => {
+			throw error;
+		});
 };

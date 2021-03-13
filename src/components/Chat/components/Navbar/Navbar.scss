@@ -24,7 +24,7 @@
 		position: relative;
 
 		& > p {
-			width: min-content;
+			width: max-content;
 			display: flex;
 			align-self: center;
 			color: white;
@@ -60,24 +60,12 @@
 			z-index: 9999;
 
 			& > p {
-				width: max-content;
 				margin: 0.25em 0.25em;
 				padding: 0.25em 0.25em;
 				color: black;
 
 				&:hover {
 					background-color: #eee;
-				}
-			}
-		}
-
-		form {
-			.input-field {
-				input,
-				select {
-					height: 4rem;
-					width: 100%;
-					box-sizing: border-box;
 				}
 			}
 		}

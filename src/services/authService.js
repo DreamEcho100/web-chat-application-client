@@ -28,6 +28,20 @@ const AuthService = {
 		localStorage.removeItem('oitahcUser');
 		localStorage.removeItem('oitahcToken');
 	},
+	updateProfile: (data) => {
+		const headers = {
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+		};
+		return API.post('/users/update', data, headers)
+			.then(({ data }) => {
+				localStorage.setItem('oitahcUser', JSON.stringify(data));
+				return data;
+			})
+			.catch((error) => {
+				console.error('Auth service error', error);
+				throw error;
+			});
+	},
 };
 
 const setHeadersAndStorage = ({ user, token }) => {
