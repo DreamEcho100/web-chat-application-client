@@ -10,6 +10,7 @@ const API = axios.create({
 	},
 });
 
+/*
 API.interceptors.response.use(
 	(res) => {
 		return res;
@@ -27,8 +28,8 @@ API.interceptors.response.use(
 		}
 	}
 );
+*/
 
-/*
 API.interceptors.response.use(
 	(response) => {
 		return response;
@@ -46,6 +47,5 @@ API.interceptors.response.use(
 		}
 	}
 );
-*/
 
 export default API;
