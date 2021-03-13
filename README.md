@@ -1,5 +1,3 @@
-<https://sequelize.org/v4/manual/tutorial/migrations.html>
-
 # web-chat-application-client
 
 Follwing the 'Node.js and React: Build a complete web chat application' Udemy course.
