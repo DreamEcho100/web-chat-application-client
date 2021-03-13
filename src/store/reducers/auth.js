@@ -2,7 +2,7 @@ import { LOGIN, REGISTER, LOGOUT, UPDATE_PROFILE } from '../types';
 
 const initialState = {
 	user: JSON.parse(localStorage.getItem('oitahcUser')) || {},
-	token: JSON.parse(localStorage.getItem('oitahcToken')) || '',
+	token: localStorage.getItem('oitahcToken') || '',
 	isLoggedIn: !!localStorage.getItem('oitahcToken'),
 };
 

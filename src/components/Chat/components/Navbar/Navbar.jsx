@@ -22,13 +22,7 @@ const Navbar = () => {
 
 	const submitForm = (event) => {
 		event.preventDefault();
-		if (
-			firstName === '' ||
-			lastName === '' ||
-			email === '' ||
-			gender === '' ||
-			avatar === ''
-		) {
+		if (firstName === '' || lastName === '' || email === '' || gender === '') {
 			return;
 		}
 
@@ -47,7 +41,10 @@ const Navbar = () => {
 		}
 		*/
 
-		dispatch(updateProfile(formData)).then(() => setShowProfileModal(false));
+		dispatch(updateProfile(formData)).then(() => {
+			setShowProfileModal(false);
+			setPassword('');
+		});
 	};
 
 	return (

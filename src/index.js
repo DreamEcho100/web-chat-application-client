@@ -8,7 +8,7 @@ import './global-styles.css';
 
 import reportWebVitals from './reportWebVitals';
 
-import store from './store/store';
+import store from './store';
 import { Provider } from 'react-redux';
 
 ReactDOM.render(

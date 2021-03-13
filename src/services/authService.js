@@ -47,7 +47,7 @@ const AuthService = {
 const setHeadersAndStorage = ({ user, token }) => {
 	API.defaults.headers['Authorization'] = `Bearer ${token}`;
 	localStorage.setItem('oitahcUser', JSON.stringify(user));
-	localStorage.setItem('oitahcToken', JSON.stringify(token));
+	localStorage.setItem('oitahcToken', token);
 };
 
 export default AuthService;
