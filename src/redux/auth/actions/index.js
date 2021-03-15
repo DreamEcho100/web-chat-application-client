@@ -1,5 +1,5 @@
 import { LOGIN, REGISTER, LOGOUT, UPDATE_PROFILE } from '../types';
-import AuthService from '../../services/authService';
+import AuthService from '../../../services/authService';
 
 export const login = (params, history) => (dispatch) => {
 	return AuthService.login(params)

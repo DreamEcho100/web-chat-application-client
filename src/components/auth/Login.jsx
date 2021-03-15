@@ -7,7 +7,7 @@ import './Auth.css';
 
 import { ReactComponent as LoginImage } from '../../assests/images/login.svg';
 // import AuthService from '../../services/authService';
-import { login } from '../../store/actions/auth';
+import { login } from '../../redux/auth/actions';
 
 const Login = ({ history }) => {
 	const dispatch = useDispatch();

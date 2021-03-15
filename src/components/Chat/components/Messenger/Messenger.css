@@ -1,0 +1,88 @@
+#messenger {
+  justify-content: space-between;
+  padding: 0.75em;
+  flex-grow: 2;
+  background-color: white;
+}
+#messenger #messenger-wrap {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+#messenger #messenger-wrap #settings {
+  border-radius: 0.5rem;
+  position: absolute;
+  right: 1.2rem;
+  top: 0.8rem;
+  padding: 0.25em;
+  border: 0.1rem solid #d9d9d9;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+#messenger #messenger-wrap #settings > div {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0.25em;
+  cursor: pointer;
+}
+#messenger #messenger-wrap #settings > div .fa-icon {
+  position: relative;
+  font-size: 2rem;
+  color: var(--bg-main);
+  margin-right: 0.25em;
+  min-width: 1em;
+}
+#messenger #messenger-wrap #settings p {
+  margin: 0.25em 0;
+  color: #000;
+}
+#messenger #messenger-wrap > .fa-icon {
+  font-size: 2rem;
+  color: var(--bg-main);
+  right: 0;
+  position: absolute;
+  top: 0;
+  cursor: pointer;
+}
+#messenger > div {
+  flex-grow: 1;
+}
+#messenger input {
+  border: none;
+  background-color: #f5f6f8;
+  padding: 0.5em;
+}
+#messenger hr {
+  border-top: 0.1rem solid #cfcfcf;
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+#messenger #delete-chat {
+  background-color: var(--success);
+  border: none;
+  padding: 0.25em;
+  width: 7rem;
+  color: white;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+#messenger #suggestions .suggestion {
+  margin: 0.5em 0;
+  padding: 0.25em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#messenger #suggestions .suggestion button {
+  background-color: var(--success);
+  border-radius: 1rem;
+  border: none;
+  height: 2.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=Messenger.css.map */

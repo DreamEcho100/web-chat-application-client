@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './Navbar.css';
 
-import { logout, updateProfile } from '../../../../store/actions/auth';
+import { logout, updateProfile } from '../../../../redux/auth/actions';
 import Modal from '../../../Modal/Modal';
 
 const Navbar = () => {

@@ -7,7 +7,7 @@ import './Auth.css';
 
 import { ReactComponent as RegisterImage } from '../../assests/images/register.svg';
 // import AuthService from '../../services/authService';
-import { register } from '../../store/actions/auth';
+import { register } from '../../redux/auth/actions';
 
 const Register = ({ history }) => {
 	const dispatch = useDispatch();
