@@ -1,0 +1,62 @@
+.creator {
+	justify-content: flex-end;
+}
+
+.mb-5 {
+	margin-bottom: 0.25em;
+}
+
+.mb-10 {
+	margin-bottom: 0.5em;
+}
+
+.message {
+	display: flex;
+	align-items: center;
+	padding-right: 0.25em;
+	text-align: left;
+
+	.info {
+		display: flex;
+		align-items: center;
+
+		.message-box-avatar {
+			width: 3rem;
+			height: 3rem;
+			margin: 0;
+		}
+
+		h6 {
+			margin: auto 0.5em;
+		}
+	}
+
+	p {
+		word-wrap: break-word;
+		word-break: break-word;
+		font-size: var(--small-size-text-3);
+	}
+
+	& > div {
+		border-radius: 2rem;
+	}
+
+	.owner {
+		background-color: var(--bg-main);
+		color: white;
+		padding: 0.5em;
+	}
+
+	.other-person {
+		background-color: #f5f6f8;
+		padding: 0.5em;
+	}
+
+	.dots {
+		margin: -0.25em 0 0.15em 0;
+	}
+
+	img {
+		max-width: 20rem;
+	}
+}

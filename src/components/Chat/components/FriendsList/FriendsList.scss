@@ -7,7 +7,7 @@
 
 	@media (min-width: 800px) {
 		flex-grow: 1;
-		margin-right: 2rem;
+		margin-right: 1em;
 		max-width: 25rem;
 		min-width: 25rem;
 		margin-bottom: 0;
@@ -16,7 +16,7 @@
 	#title {
 		display: flex;
 		justify-content: space-between;
-		padding: 0 0.5em;
+		padding: 0 0.25em;
 		align-items: flex-end;
 
 		button {
@@ -34,13 +34,14 @@
 	hr {
 		border-top: 0.1rem solid #cfcfcf;
 		width: 100%;
-		margin-bottom: 0;
+		margin: 0.25em 0;
 	}
 
 	#friends-box {
 		overflow-y: auto;
 		display: flex;
 		text-align: left;
+		padding: 0 0.25em;
 
 		@media (min-width: 800px) {
 			flex-direction: column;

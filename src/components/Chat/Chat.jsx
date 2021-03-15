@@ -5,6 +5,10 @@ import { fetchChats } from '../../redux/chat/actions';
 import './Chat.css';
 
 import Navbar from './components/Navbar/Navbar';
+import FriendsList from './components/FriendsList/FriendsList';
+import Messenger from './components/Messenger/Messenger';
+
+import './Chat.css';
 
 const Chat = () => {
 	const dispatch = useDispatch();
@@ -19,6 +23,10 @@ const Chat = () => {
 	return (
 		<Fragment>
 			<Navbar />
+			<div id='chat-wrap'>
+				<FriendsList />
+				<Messenger />
+			</div>
 		</Fragment>
 	);
 };

@@ -8,7 +8,7 @@
 @media (min-width: 800px) {
   #friends {
     flex-grow: 1;
-    margin-right: 2rem;
+    margin-right: 1em;
     max-width: 25rem;
     min-width: 25rem;
     margin-bottom: 0;
@@ -17,7 +17,7 @@
 #friends #title {
   display: flex;
   justify-content: space-between;
-  padding: 0 0.5em;
+  padding: 0 0.25em;
   align-items: flex-end;
 }
 #friends #title button {
@@ -33,12 +33,13 @@
 #friends hr {
   border-top: 0.1rem solid #cfcfcf;
   width: 100%;
-  margin-bottom: 0;
+  margin: 0.25em 0;
 }
 #friends #friends-box {
   overflow-y: auto;
   display: flex;
   text-align: left;
+  padding: 0 0.25em;
 }
 @media (min-width: 800px) {
   #friends #friends-box {
@@ -72,4 +73,4 @@
   cursor: pointer;
 }
 
-/*# sourceMappingURL=FriendList.css.map */
+/*# sourceMappingURL=FriendsList.css.map */

@@ -1,0 +1,21 @@
+#chatter {
+  overflow-y: auto;
+  display: flex;
+  text-align: left;
+  margin-top: 0.5em;
+}
+#chatter h3 {
+  margin: 0 0.5em 0 0;
+}
+#chatter .chatter-info {
+  display: flex;
+  margin-right: 0.5em;
+  min-width: 8rem;
+  padding: 0.5em;
+}
+#chatter .chatter-status {
+  display: flex;
+  align-items: center;
+}
+
+/*# sourceMappingURL=ChatHeader.css.map */

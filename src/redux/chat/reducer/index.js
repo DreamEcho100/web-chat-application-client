@@ -29,10 +29,17 @@ const chatReducer = (state = initialState, action) => {
 
 	switch (type) {
 		case FETCH_CHATS:
-			console.log(payload);
 			return {
 				...state,
 				chats: payload,
+			};
+			// eslint-disable-next-line no-unreachable
+			break;
+
+		case SET_CURRENT_CHAT:
+			return {
+				...state,
+				currentChat: payload,
 			};
 			// eslint-disable-next-line no-unreachable
 			break;

@@ -1,0 +1,18 @@
+#msg-box {
+  scroll-behavior: auto;
+  overflow-y: scroll;
+  flex-grow: 2;
+  height: 0;
+  margin-bottom: 0.5em;
+}
+#msg-box .other-person {
+  max-width: fit-content;
+}
+#msg-box .loader {
+  text-align: center;
+}
+#msg-box .mt-5p {
+  margin-top: 0.25em;
+}
+
+/*# sourceMappingURL=MessageBox.css.map */

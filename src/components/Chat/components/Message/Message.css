@@ -1,0 +1,55 @@
+.creator {
+  justify-content: flex-end;
+}
+
+.mb-5 {
+  margin-bottom: 0.25em;
+}
+
+.mb-10 {
+  margin-bottom: 0.5em;
+}
+
+.message {
+  display: flex;
+  align-items: center;
+  padding-right: 0.25em;
+  text-align: left;
+}
+.message .info {
+  display: flex;
+  align-items: center;
+}
+.message .info .message-box-avatar {
+  width: 3rem;
+  height: 3rem;
+  margin: 0;
+}
+.message .info h6 {
+  margin: auto 0.5em;
+}
+.message p {
+  word-wrap: break-word;
+  word-break: break-word;
+  font-size: var(--small-size-text-3);
+}
+.message > div {
+  border-radius: 2rem;
+}
+.message .owner {
+  background-color: var(--bg-main);
+  color: white;
+  padding: 0.5em;
+}
+.message .other-person {
+  background-color: #f5f6f8;
+  padding: 0.5em;
+}
+.message .dots {
+  margin: -0.25em 0 0.15em 0;
+}
+.message img {
+  max-width: 20rem;
+}
+
+/*# sourceMappingURL=Message.css.map */

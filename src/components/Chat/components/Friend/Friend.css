@@ -1,7 +1,7 @@
 .friend-list {
   display: flex;
   justify-content: space-between;
-  padding: 0.75em;
+  padding: 0.5em 0.25em;
   cursor: pointer;
   flex-direction: column;
   min-width: fit-content;
@@ -13,13 +13,23 @@
 }
 .friend-list > div {
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.friend-list > div h4 {
+  font-size: calc(var(--header4) - 1rem);
+}
+.friend-list > div h5 {
+  font-size: calc(var(--header5) - 1.5rem);
 }
 .friend-list > div img {
   display: flex;
   align-self: center;
-  margin-right: 0.25em;
+  width: 5rem;
+  height: 5rem;
 }
 .friend-list > div .friend-info {
+  margin: 0 0.5em;
   display: flex;
   align-self: center;
   flex-direction: column;
@@ -28,6 +38,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.friend-list .friend-status span {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+}
+.friend-list .friend-status .online {
+  background-color: var(--success);
+}
+.friend-list .friend-status .offline {
+  background-color: var(--danger);
 }
 
 /*# sourceMappingURL=Friend.css.map */
