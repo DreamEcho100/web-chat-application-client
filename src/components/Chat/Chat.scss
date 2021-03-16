@@ -32,6 +32,7 @@
 	flex-grow: 1;
 	overflow: hidden;
 	padding: 1em 0.5em;
+	min-height: 40rem;
 
 	@media (min-width: 800px) {
 		padding: 0.75em 1em;

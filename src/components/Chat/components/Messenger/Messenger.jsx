@@ -9,11 +9,7 @@ import MessageInput from '../MessageInput/MessageInput';
 
 const Messenger = () => {
 	const chat = useSelector((state) => state.chatReducer.currentChat);
-
 	const activeChat = () => {
-		if (!chat) {
-			return false;
-		}
 		return Object.keys(chat).length > 0;
 	};
 
@@ -22,7 +18,6 @@ const Messenger = () => {
 			{activeChat() ? (
 				<div id='messenger-wrap'>
 					<ChatHeader chat={chat} />
-					<hr />
 					<MessageBox chat={chat} />
 					<MessageInput chat={chat} />
 				</div>

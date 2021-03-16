@@ -27,7 +27,11 @@ const Friend = ({ chat, click }) => {
 	return (
 		<div onClick={click} className={`friend-list ${isChatOpened()}`}>
 			<div>
-				<img src={avatar} alt={`${firstName} ${lastName} avatar`} />
+				<img
+					className='border-radius-circle'
+					src={avatar}
+					alt={`${firstName} ${lastName} avatar`}
+				/>
 				<div className='friend-info'>
 					<h4>
 						{firstName} {lastName}

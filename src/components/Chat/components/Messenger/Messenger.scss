@@ -7,6 +7,7 @@
 	#messenger-wrap {
 		display: flex;
 		flex-direction: column;
+		justify-content: space-around;
 		height: 100%;
 		position: relative;
 
@@ -63,11 +64,11 @@
 		padding: 0.5em;
 	}
 
-	hr {
+	/*hr {
 		border-top: 0.1rem solid #cfcfcf;
 		width: 100%;
 		margin-bottom: 0.5em;
-	}
+	}*/
 
 	#delete-chat {
 		background-color: var(--success);

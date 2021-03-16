@@ -32,7 +32,7 @@ const ChatHeader = ({ chat }) => {
 	};
 
 	return (
-		<Fragment>
+		<div id='chat-header-wapper'>
 			<div id='chatter'>
 				{chat.Users.map((user) => (
 					<div className='chatter-info' key={user.id}>
@@ -48,7 +48,7 @@ const ChatHeader = ({ chat }) => {
 			<FontAwesomeIcon
 				onClick={() => setShowChatOptions(!showChatOptions)}
 				icon={['fas', 'ellipsis-v']}
-				className='fa-icon'
+				className='fa-icon cursor-pointer'
 			/>
 			{showChatOptions ? (
 				<div id='settings'>
@@ -76,7 +76,7 @@ const ChatHeader = ({ chat }) => {
 				</div>
 			) : null}
 			{showAddFriendModal && (
-				<Modal click={() => setShowLeaveChatModal(false)}>
+				<Modal click={() => setShowAddFriendModal(false)}>
 					<Fragment key='header'>
 						<h3>Add friend to group chat</h3>
 					</Fragment>
@@ -101,7 +101,7 @@ const ChatHeader = ({ chat }) => {
 					</Fragment>
 				</Modal>
 			)}
-		</Fragment>
+		</div>
 	);
 };
 

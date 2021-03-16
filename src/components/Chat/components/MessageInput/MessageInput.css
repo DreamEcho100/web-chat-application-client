@@ -1,3 +1,79 @@
-
+#input-container {
+  position: relative;
+  height: fit-content;
+  max-height: 5rem;
+}
+#input-container #image-upload-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.0625em 0.0625em 0.0625em 0;
+  position: relative;
+}
+#input-container #image-upload-container #image-upload {
+  display: flex;
+}
+#input-container #image-upload-container #message-notification {
+  display: flex;
+  cursor: pointer;
+  border: 0.1rem solid var(--bg-main);
+  border-radius: 1.5rem;
+  padding: 0.25em;
+}
+#input-container #image-upload-container #message-notification .fa-icon {
+  color: var(--bg-main);
+  margin-right: 0.25em;
+}
+#input-container #image-upload-container .fa-icon {
+  position: relative;
+  right: 0;
+  top: 0;
+}
+#input-container #image-upload-container #image-details {
+  padding: 0.1em;
+  border: 0.1rem solid black;
+  margin-right: 0.25em;
+  display: flex;
+  align-items: center;
+}
+#input-container #image-upload-container #image-details .fa-icon {
+  margin: 0 0.2em;
+}
+#input-container #message-input {
+  position: relative;
+}
+#input-container #message-input input {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 1rem;
+}
+#input-container .fa-icon {
+  font-size: 2rem;
+  color: var(--bg-main);
+  position: absolute;
+  right: 0.5em;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+#input-container .mb-5p {
+  margin-bottom: 0.25em;
+}
+#input-container .mb-10p {
+  margin-bottom: 0.5em;
+}
+#input-container input {
+  border: none;
+  background-color: #f5f6f8;
+  padding: 0.5em;
+}
+#input-container #chat-image {
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
 
 /*# sourceMappingURL=MessageInput.css.map */

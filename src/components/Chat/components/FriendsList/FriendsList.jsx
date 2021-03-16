@@ -16,7 +16,7 @@ const FriendsList = () => {
 	};
 
 	return (
-		<div id='friends'>
+		<div id='friends' className='shadow-light'>
 			<div id='title'>
 				<h3>Friends</h3>
 				<button>Add</button>

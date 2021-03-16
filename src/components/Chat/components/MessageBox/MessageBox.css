@@ -2,8 +2,10 @@
   scroll-behavior: auto;
   overflow-y: scroll;
   flex-grow: 2;
-  height: 0;
-  margin-bottom: 0.5em;
+  /* height: 0; */
+  max-height: 30rem;
+  margin: 0.5em 0;
+  max-height: 100%;
 }
 #msg-box .other-person {
   max-width: fit-content;

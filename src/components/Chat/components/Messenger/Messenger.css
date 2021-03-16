@@ -3,10 +3,16 @@
   padding: 0.75em;
   flex-grow: 2;
   background-color: white;
+  /*hr {
+  	border-top: 0.1rem solid #cfcfcf;
+  	width: 100%;
+  	margin-bottom: 0.5em;
+  }*/
 }
 #messenger #messenger-wrap {
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   height: 100%;
   position: relative;
 }
@@ -54,11 +60,6 @@
   border: none;
   background-color: #f5f6f8;
   padding: 0.5em;
-}
-#messenger hr {
-  border-top: 0.1rem solid #cfcfcf;
-  width: 100%;
-  margin-bottom: 0.5em;
 }
 #messenger #delete-chat {
   background-color: var(--success);

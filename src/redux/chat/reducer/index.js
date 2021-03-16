@@ -17,7 +17,7 @@ import {
 
 const initialState = {
 	chats: [],
-	currentChats: [],
+	currentChat: [],
 	sokets: [],
 	newMessage: { chatId: null, seen: null },
 	scrollBottom: 0,

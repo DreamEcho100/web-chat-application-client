@@ -1,5 +1,16 @@
 .creator {
 	justify-content: flex-end;
+
+	.message {
+		header,
+		main {
+			justify-content: flex-end;
+		}
+
+		footer {
+			justify-content: flex-start;
+		}
+	}
 }
 
 .mb-5 {
@@ -15,8 +26,17 @@
 	align-items: center;
 	padding-right: 0.25em;
 	text-align: left;
+	p {
+		width: fit-content;
+	}
 
-	.info {
+	header,
+	main,
+	footer {
+		width: 100%;
+	}
+
+	header {
 		display: flex;
 		align-items: center;
 
@@ -27,8 +47,12 @@
 		}
 
 		h6 {
-			margin: auto 0.5em;
+			margin: auto 0.25em;
 		}
+	}
+
+	main {
+		margin: 0.25em 0;
 	}
 
 	p {
@@ -48,7 +72,7 @@
 	}
 
 	.other-person {
-		background-color: #f5f6f8;
+		background-color: #ececec;
 		padding: 0.5em;
 	}
 
@@ -58,5 +82,44 @@
 
 	img {
 		max-width: 20rem;
+	}
+
+	.date-and-time {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		* {
+			font-weight: 600;
+		}
+
+		.date,
+		.updatedAt,
+		.createdAt,
+		time {
+			display: flex;
+			align-items: baseline;
+			justify-content: flex-end;
+		}
+
+		.updatedAt,
+		.createdAt {
+			* {
+				font-size: 1rem;
+			}
+		}
+
+		.date {
+			* {
+				font-size: 1.2rem;
+			}
+			margin: 0 0.0625em;
+		}
+
+		.time {
+			* {
+				font-size: 1.5rem;
+				font-weight: 600;
+			}
+		}
 	}
 }
