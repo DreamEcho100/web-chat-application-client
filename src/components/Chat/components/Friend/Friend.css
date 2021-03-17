@@ -12,9 +12,12 @@
   }
 }
 .friend-list > div {
-  display: flex;
+  /*display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-around;*/
+  display: grid;
+  grid-template-columns: 5rem auto auto;
+  width: 100%;
 }
 .friend-list > div h4 {
   font-size: calc(var(--header4) - 1rem);

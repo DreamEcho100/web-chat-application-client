@@ -55,6 +55,7 @@
 #navbar #profile-menu #profile-options > p {
   margin: 0.25em 0.25em;
   padding: 0.25em 0.25em;
+  width: max-content;
   color: black;
 }
 #navbar #profile-menu #profile-options > p:hover {

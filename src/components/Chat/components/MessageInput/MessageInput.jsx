@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './MessageInput.css';
 
-const MessageInput = () => {
+const MessageInput = ({ chat }) => {
+	const user = useSelector((state) => state.authReducer.user);
+
 	const [message, setMessage] = useState('');
 	const [image, setImage] = useState('');
 
@@ -24,6 +27,19 @@ const MessageInput = () => {
 		if (message.length && !imageUpload) {
 			return;
 		}
+
+		const msg = {
+			type: imageUpload ? 'image' : 'text',
+			fromUserId: user.id,
+			toUserId: chat.Users.map((user) => user.id),
+			chatId: chat.id,
+			message: imageUpload ? image : message,
+		};
+
+		setMessage('');
+		setImage('');
+
+		// Send message with soket
 	};
 
 	return (
