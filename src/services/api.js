@@ -1,9 +1,10 @@
 import axios from 'axios';
 import store from '../redux/store';
 import { logout } from '../redux/auth/actions';
+import BACK_END_URL from './BACK_END_URL';
 
 const API = axios.create({
-	baseURL: 'http://localhost:5000',
+	baseURL: BACK_END_URL,
 	headers: {
 		Accept: 'application/json',
 		Authorization: `Bearer ${localStorage.getItem('oitahcToken') || ''}`,
