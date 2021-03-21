@@ -36,6 +36,12 @@ const Message = ({ user, chat, index, message }) => {
 			hours = 24 + hours;
 			messageTimeAndDate = new Date(messageTimeAndDate.getTime() - 86400000);
 		}
+		if (hours > 12) {
+			hours = hours % 12;
+			dayOrNight = 'pm';
+		} else {
+			dayOrNight = 'am';
+		}
 		hours = handleAddingZeroAtFirstOrNot(hours);
 
 		minutes = messageTimeAndDate.getMinutes();
@@ -45,12 +51,6 @@ const Message = ({ user, chat, index, message }) => {
 
 		// Get the time
 		day = messageTimeAndDate.getUTCDate();
-		if (day > 12) {
-			day = day % 12;
-			dayOrNight = 'pm';
-		} else {
-			dayOrNight = 'am';
-		}
 		month = messageTimeAndDate.getMonth() + 1;
 		year = messageTimeAndDate.getFullYear();
 		// date = `${day}/${month}/${year}`;

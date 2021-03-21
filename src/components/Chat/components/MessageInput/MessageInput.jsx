@@ -6,6 +6,7 @@ import './MessageInput.css';
 
 const MessageInput = ({ chat }) => {
 	const user = useSelector((state) => state.authReducer.user);
+	const socket = useSelector((state) => state.chatReducer.socket);
 
 	const [message, setMessage] = useState('');
 	const [image, setImage] = useState('');
@@ -19,18 +20,18 @@ const MessageInput = ({ chat }) => {
 
 	const handleKeyDown = (event, imageUpload) => {
 		if (event.key === 'Enter') {
-			return; // sendMessage(imageUpload);
+			return sendMessage(imageUpload);
 		}
 	};
 
 	const sendMessage = (imageUpload) => {
-		if (message.length && !imageUpload) {
+		if (message.length === 0 && !imageUpload) {
 			return;
 		}
 
 		const msg = {
 			type: imageUpload ? 'image' : 'text',
-			fromUserId: user.id,
+			fromUser: user,
 			toUserId: chat.Users.map((user) => user.id),
 			chatId: chat.id,
 			message: imageUpload ? image : message,
@@ -40,6 +41,7 @@ const MessageInput = ({ chat }) => {
 		setImage('');
 
 		// Send message with soket
+		socket.emit('message', msg);
 	};
 
 	return (

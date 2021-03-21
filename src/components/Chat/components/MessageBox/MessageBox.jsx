@@ -19,9 +19,17 @@ const MessageBox = ({ chat }) => {
 
 	const msgBox = useRef();
 
-	const scrollManual = () => {};
+	const scrollManual = (value) => {
+		msgBox.current.scrollTop = value;
+	};
 
 	const handleInfiniteScroll = () => {};
+
+	useEffect(() => {
+		setTimeout(() => {
+			scrollManual(msgBox.current.scrollHeight);
+		}, 100);
+	}, [scrollBottom]);
 
 	return (
 		<div onScroll={handleInfiniteScroll} id='msg-box' ref={msgBox}>

@@ -18,11 +18,10 @@ const Chat = () => {
 
 	useSocket(user, dispatch);
 
-	useEffect(() => {
-		dispatch(fetchChats())
-			// .then((response) => console.log(response))
-			.catch((error) => console.error(error));
-	}, [dispatch]);
+	// useEffect(() => {
+	// 	dispatch(fetchChats())
+	// 		.catch((error) => console.error(error));
+	// }, [dispatch]);
 
 	return (
 		<Fragment>
