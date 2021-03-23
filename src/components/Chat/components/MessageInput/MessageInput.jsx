@@ -2,8 +2,11 @@ import React, { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { Picker } from 'emoji-mart/dist-modern/index.js';
+
+import 'emoji-mart/css/emoji-mart.css';
 import './MessageInput.css';
-import { Picker } from 'emoji-mart';
+
 import ChatService from '../../../../services/chatService';
 
 const MessageInput = ({ chat }) => {
@@ -16,20 +19,45 @@ const MessageInput = ({ chat }) => {
 	const [message, setMessage] = useState('');
 	const [image, setImage] = useState('');
 	const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+	const [selectingEmojiOnEmptyText, setSelectingEmojiOnEmptyText] = useState(
+		false
+	);
 	const [showNewMessageNotification, setShowNewMessageNotification] = useState(
 		false
 	);
 
+	const notifuOthersOnTyping = (message) => {
+		// Notify other users that this user is typing somthing
+		const receiver = {
+			chatId: chat.id,
+			fromUser: user,
+			toUserId: chat.Users.map((user) => user.id),
+		};
+
+		if (message.trim().length === 1 || selectingEmojiOnEmptyText) {
+			receiver.typing = true;
+			socket.emit('typing', receiver);
+		} else if (message.trim().length === 0) {
+			receiver.typing = false;
+			socket.emit('typing', receiver);
+		}
+	};
+
 	const handleMessage = (event) => {
 		const value = event.target.value;
-		setMessage(value);
-
-		// Notify other users that this user is typing somthing
+		if (value.trim().length === 0) {
+			setMessage('');
+		} else {
+			setMessage(value);
+		}
+		notifuOthersOnTyping(value);
 	};
 
 	const handleKeyDown = (event, imageUpload) => {
 		if (event.key === 'Enter' && !event.shiftKey) {
-			return sendMessage(imageUpload);
+			sendMessage(imageUpload);
+			notifuOthersOnTyping(message);
+			return;
 		}
 	};
 
@@ -43,13 +71,15 @@ const MessageInput = ({ chat }) => {
 			fromUser: user,
 			toUserId: chat.Users.map((user) => user.id),
 			chatId: chat.id,
-			message: imageUpload ? imageUpload : message,
+			message: imageUpload
+				? imageUpload
+				: message.replace(/\n/g, '___IANLH___'),
 		};
 
 		setMessage('');
 		setImage('');
 
-		// Send message with soket
+		// Send message with socket
 		socket.emit('message', msg);
 	};
 
@@ -61,13 +91,32 @@ const MessageInput = ({ chat }) => {
 		// Chat service
 		ChatService.uploadImage(formData)
 			.then((image) => {
-				console.log(image);
 				sendMessage(image);
 			})
 			.catch((error) => console.error(error));
 	};
 
-	const selectEmoji = () => {};
+	const selectEmoji = async (emoji) => {
+		const startPosition = msgInput.current.selectionStart;
+		const endPosition = msgInput.current.selectionEnd;
+		const emojiLength = emoji.native.length;
+		const value = msgInput.current.value;
+		if (!/[\S]+/g.test(message)) {
+			await setSelectingEmojiOnEmptyText(true);
+		}
+		setMessage(
+			value.substring(0, startPosition) +
+				emoji.native +
+				value.substring(endPosition, value.length)
+		);
+		msgInput.current.focus();
+		msgInput.current.selectionEnd = endPosition + emojiLength;
+
+		notifuOthersOnTyping(message);
+		if (selectingEmojiOnEmptyText) {
+			setSelectingEmojiOnEmptyText(false);
+		}
+	};
 
 	const showNewMessage = () => {};
 
@@ -115,8 +164,9 @@ const MessageInput = ({ chat }) => {
 				/>
 				<div className='icons-holder'>
 					<FontAwesomeIcon
+						onClick={() => setShowEmojiPicker(!showEmojiPicker)}
 						icon={['far', 'smile']}
-						className='fa-icon fa-icon-2'
+						className='fa-icon'
 					/>
 					<FontAwesomeIcon
 						onClick={() => fileUpload.current.click()}
@@ -133,11 +183,18 @@ const MessageInput = ({ chat }) => {
 				onChange={(event) => setImage(event.target.files[0])}
 			/>
 
-			{false ? (
+			{showEmojiPicker ? (
 				<Picker
+					className='emoji-picker-container'
 					title='Pick your emoji...'
 					emoji='point_up'
-					style={{ position: 'absolute', bottom: '2rem', right: '2rem' }}
+					style={{
+						position: 'absolute',
+						width: '35.3rem',
+						bottom: '5rem',
+						right: '2rem',
+						maxWidth: '75vw',
+					}}
 					onSelect={selectEmoji}
 				/>
 			) : null}

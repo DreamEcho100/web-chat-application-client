@@ -14,6 +14,7 @@ const MessageBox = ({ chat }) => {
 	const user = useSelector((state) => state.authReducer.user);
 	const scrollBottom = useSelector((state) => state.chatReducer.scrollBottom);
 	const senderTyping = useSelector((state) => state.chatReducer.senderTyping);
+
 	const [loading, setLoading] = useState(false);
 	const [scrollUp, setScrollUp] = useState(0);
 
@@ -49,10 +50,8 @@ const MessageBox = ({ chat }) => {
 					/>
 				);
 			})}
-			{senderTyping &&
-			senderTyping.typing &&
-			senderTyping.chatId === chat.id ? (
-				<div className='message'>
+			{senderTyping.typing && senderTyping.chatId === chat.id ? (
+				<div className='message' style={{ marginTop: '0.25em' }}>
 					<div className='other-person'>
 						<p>
 							{senderTyping.fromUser.firstName} {senderTyping.fromUser.lastName}

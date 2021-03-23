@@ -21,7 +21,7 @@ const initialState = {
 	socket: [],
 	newMessage: { chatId: null, seen: null },
 	scrollBottom: 0,
-	sendingTyping: { typing: false },
+	senderTyping: { typing: false },
 };
 
 const chatReducer = (state = initialState, action) => {
@@ -199,6 +199,23 @@ const chatReducer = (state = initialState, action) => {
 				newMessage,
 				scrollBottom,
 				sendingTyping: { typing: false },
+			};
+			// eslint-disable-next-line no-unreachable
+			break;
+		}
+
+		case SENDER_TYPING: {
+			if (payload.typing) {
+				return {
+					...state,
+					senderTyping: payload,
+					scrollBottom: state.scrollBottom + 1,
+				};
+			}
+
+			return {
+				...state,
+				senderTyping: payload,
 			};
 			// eslint-disable-next-line no-unreachable
 			break;

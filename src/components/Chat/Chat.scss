@@ -1,13 +1,8 @@
-#chat-container {
+#chat-section {
 	display: flex;
 	flex-direction: column;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0;
 	background-color: var(--bg-gray);
-	height: 100%;
+	background-color: var(--bg-main);
 
 	.online-status {
 		display: inline-block;
@@ -26,7 +21,6 @@
 }
 
 #chat-wrap {
-	height: 100%;
 	min-height: fit-content;
 	display: flex;
 	flex-direction: column;

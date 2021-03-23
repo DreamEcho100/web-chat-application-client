@@ -93,7 +93,12 @@ const Message = ({ user, chat, index, message }) => {
 				) : null}{' '}
 				<main>
 					{message.type === 'text' ? (
-						<p>{message.message}</p>
+						message.message.split('___IANLH___').map((message, index) => {
+							if (message.trim() === '') {
+								return <br key={index} />;
+							}
+							return <p key={index}>{message}</p>;
+						})
 					) : (
 						<img src={message.message} alt='User upload' />
 					)}

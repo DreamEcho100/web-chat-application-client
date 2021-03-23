@@ -12,6 +12,27 @@
   background-color: #f5f6f8;
   padding: 0.5em;
 }
+#input-container .icons-holder .fa-icon {
+  margin: 0 0.2em;
+  cursor: pointer;
+}
+#input-container section.emoji-mart.emoji-mart-light .emoji-mart-scroll {
+  height: 15rem;
+}
+#input-container section.emoji-mart.emoji-mart-light .emoji-mart-preview-data {
+  line-height: 1.5rem !important;
+}
+#input-container section.emoji-mart.emoji-mart-light .emoji-mart-preview-data * {
+  line-height: 1.5rem !important;
+}
+#input-container section.emoji-mart.emoji-mart-light .emoji-mart-preview {
+  height: 8rem !important;
+}
+#input-container section.emoji-mart.emoji-mart-light .emoji-mart-preview-skins {
+  right: 1rem !important;
+  top: 5.5rem !important;
+  bottom: unset !important;
+}
 
 #image-upload-container {
   display: flex;
@@ -35,10 +56,6 @@
   text-overflow: ellipsis;
   word-wrap: unset;
   word-break: keep-all;
-}
-#image-upload-container .image-upload .image-details .icons-holder .fa-icon {
-  margin: 0 0.2em;
-  cursor: pointer;
 }
 #image-upload-container .message-notification {
   display: flex;
@@ -78,10 +95,6 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-}
-#message-input .icons-holder .fa-icon {
-  margin: 0 0.2em;
-  cursor: pointer;
 }
 
 #chat-image {

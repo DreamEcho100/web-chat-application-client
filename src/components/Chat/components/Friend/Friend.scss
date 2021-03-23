@@ -20,10 +20,19 @@
 
 		h4 {
 			font-size: calc(var(--header4) - 1rem);
+			max-width: 15rem;
+			overflow: hidden;
+			word-break: unset;
+			text-overflow: ellipsis;
 		}
 
 		h5 {
 			font-size: calc(var(--header5) - 1.5rem);
+			max-width: 10rem;
+			max-height: 2rem;
+			overflow: hidden;
+			word-break: break-all;
+			text-overflow: ellipsis;
 		}
 
 		img {

@@ -14,6 +14,38 @@
 		background-color: #f5f6f8;
 		padding: 0.5em;
 	}
+
+	.icons-holder {
+		.fa-icon {
+			margin: 0 0.2em;
+			cursor: pointer;
+		}
+	}
+
+	section {
+		&.emoji-mart {
+			&.emoji-mart-light {
+				.emoji-mart-scroll {
+					height: 15rem;
+				}
+
+				.emoji-mart-preview-data {
+					line-height: 1.5rem !important;
+					* {
+						line-height: 1.5rem !important;
+					}
+				}
+				.emoji-mart-preview {
+					height: 8rem !important;
+				}
+				.emoji-mart-preview-skins {
+					right: 1rem !important;
+					top: 5.5rem !important;
+					bottom: unset !important;
+				}
+			}
+		}
+	}
 }
 
 #image-upload-container {
@@ -37,12 +69,6 @@
 				text-overflow: ellipsis;
 				word-wrap: unset;
 				word-break: keep-all;
-			}
-			.icons-holder {
-				.fa-icon {
-					margin: 0 0.2em;
-					cursor: pointer;
-				}
 			}
 		}
 	}
@@ -87,11 +113,6 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-around;
-
-		.fa-icon {
-			margin: 0 0.2em;
-			cursor: pointer;
-		}
 	}
 }
 

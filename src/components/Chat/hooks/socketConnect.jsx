@@ -7,6 +7,7 @@ import {
 	fetchChats,
 	setSocket,
 	receivedMessage,
+	senderTyping,
 } from '../../../redux/chat/actions';
 import BACK_END_URL from '../../../services/BACK_END_URL';
 
@@ -23,8 +24,10 @@ const useSocket = (user, dispatch) => {
 
 				socket.emit('join', user);
 
-				socket.on('typing', (user) => {
-					console.log('Event', user);
+				socket.on('typing', (sender) => {
+					console.log('Event', sender);
+					// dispatch
+					dispatch(senderTyping(sender));
 				});
 
 				socket.on('friends', (friends) => {

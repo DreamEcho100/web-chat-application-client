@@ -24,13 +24,13 @@ const Chat = () => {
 	// }, [dispatch]);
 
 	return (
-		<Fragment>
+		<section id="chat-section">
 			<Navbar />
 			<div id='chat-wrap'>
 				<FriendsList />
 				<Messenger />
 			</div>
-		</Fragment>
+		</section>
 	);
 };
 
