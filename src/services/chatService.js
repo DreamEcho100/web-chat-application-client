@@ -11,6 +11,19 @@ const ChatService = {
 			});
 	},
 
+	uploadImage: (data) => {
+		const headers = {
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+		};
+		return API.post('/chats/upload-image', data, headers)
+			.then(({ data }) => {
+				return data.url;
+			})
+			.catch((error) => {
+				throw error;
+			});
+	},
+
 	paginateMessages: (id, page) => {
 		return API.post('/chats/messages', {
 			params: {
