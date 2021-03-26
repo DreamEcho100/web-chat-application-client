@@ -72,6 +72,7 @@ const Message = ({ user, chat, index, message }) => {
 
 	return (
 		<div
+			id={`chat-${message.chatId}-user-${message.fromUserId}-message-${message.id}`}
 			className={`message ${determineMargin()} ${
 				message.fromUserId === user.id ? 'creator' : ''
 			}`}

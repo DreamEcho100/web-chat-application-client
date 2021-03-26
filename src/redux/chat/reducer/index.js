@@ -7,6 +7,8 @@ import {
 	SET_SOCKET,
 	RECEIVED_MESSAGE,
 	SENDER_TYPING,
+	SET_MSGBOX_ELEMENT_AND_SENDERTYPING_ELEMENT,
+	SET_A_NEW_MESSAGE_SEEN,
 	PAGINATE_MESSAGES,
 	INCREMENT_SCROLL,
 	CREATE_CHAT,
@@ -19,9 +21,19 @@ const initialState = {
 	chats: [],
 	currentChat: [],
 	socket: [],
-	newMessage: { chatId: null, seen: null },
+	newMessage: {
+		chatId: null,
+		userId: null,
+		messageId: null,
+		seen: null,
+	},
 	scrollBottom: 0,
-	senderTyping: { typing: false },
+	senderTyping: {
+		typing: false,
+		msgBoxElement: null,
+		senderTypingElement: null,
+		senderTypingElementNearlyInView: true,
+	},
 };
 
 const chatReducer = (state = initialState, action) => {
@@ -41,7 +53,12 @@ const chatReducer = (state = initialState, action) => {
 				...state,
 				currentChat: payload,
 				scrollBottom: state.scrollBottom++,
-				newMessage: { chatId: null, seen: null },
+				newMessage: {
+					chatId: null,
+					userId: null,
+					messageId: null,
+					seen: null,
+				},
 			};
 			// eslint-disable-next-line no-unreachable
 			break;
@@ -161,7 +178,10 @@ const chatReducer = (state = initialState, action) => {
 						scrollBottom++;
 					} else {
 						newMessage = {
+							...state.newMessage,
 							chatId: chat.id,
+							userId: message.fromUserId,
+							messageId: message.id,
 							seen: false,
 						};
 					}
@@ -188,7 +208,7 @@ const chatReducer = (state = initialState, action) => {
 					chats: chatsCopy,
 					currentChat: currentChatCopy,
 					newMessage,
-					sendingTyping: { typing: false },
+					sendingTyping: { ...state.senderTyping, typing: false },
 				};
 			}
 
@@ -198,7 +218,7 @@ const chatReducer = (state = initialState, action) => {
 				currentChat: currentChatCopy,
 				newMessage,
 				scrollBottom,
-				sendingTyping: { typing: false },
+				sendingTyping: { ...state.senderTyping, typing: false },
 			};
 			// eslint-disable-next-line no-unreachable
 			break;
@@ -209,13 +229,88 @@ const chatReducer = (state = initialState, action) => {
 				return {
 					...state,
 					senderTyping: payload,
-					scrollBottom: state.scrollBottom + 1,
+					// scrollBottom: state.scrollBottom + 1,
 				};
 			}
 
 			return {
 				...state,
 				senderTyping: payload,
+			};
+			// eslint-disable-next-line no-unreachable
+			break;
+		}
+
+		case SET_MSGBOX_ELEMENT_AND_SENDERTYPING_ELEMENT: {
+			return {
+				...state,
+				senderTyping: {
+					...state.senderTyping,
+					...payload,
+				},
+				// scrollBottom: state.scrollBottom + 1,
+			};
+			// eslint-disable-next-line no-unreachable
+			break;
+		}
+
+		case SET_A_NEW_MESSAGE_SEEN: {
+			const { seen } = payload;
+
+			return {
+				...state,
+				newMessage: {
+					...state.newMessage,
+					seen,
+				},
+			};
+
+			// eslint-disable-next-line no-unreachable
+			break;
+		}
+
+		case INCREMENT_SCROLL: {
+			return {
+				...state,
+				scrollBottom: state.scrollBottom + 1,
+				newMessage: {
+					chatId: null,
+					userId: null,
+					messageId: null,
+					seen: true,
+				},
+			};
+		}
+
+		case PAGINATE_MESSAGES: {
+			const { messages, id, pagination } = payload;
+
+			let currentChatCopy = { ...state.currentChat };
+
+			const chatsCopy = state.chats.map((chat) => {
+				if ((chat.id = id)) {
+					const shifted = [...messages, ...chat.Messages];
+
+					currentChatCopy = {
+						...currentChatCopy,
+						Messages: shifted,
+						Pagination: pagination,
+					};
+
+					return {
+						...chat,
+						Messages: shifted,
+						Pagination: pagination,
+					};
+				}
+
+				return chat;
+			});
+
+			return {
+				...state,
+				chats: chatsCopy,
+				currentChat: currentChatCopy,
 			};
 			// eslint-disable-next-line no-unreachable
 			break;

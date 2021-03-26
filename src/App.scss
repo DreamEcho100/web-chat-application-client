@@ -22,7 +22,7 @@ body {
 #chat-app-main-container {
 	width: 100%;
 	height: 100%;
-	background-color: var(--bg-main);
+	background-image: linear-gradient(180deg, var(--bg-dark), var(--bg-main));
 }
 
 .card-shadow {

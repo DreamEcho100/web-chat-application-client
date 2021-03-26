@@ -1,8 +1,7 @@
 #chat-section {
 	display: flex;
 	flex-direction: column;
-	background-color: var(--bg-gray);
-	background-color: var(--bg-main);
+	background-image: linear-gradient(180deg, var(--bg-dark), var(--bg-main));
 
 	.online-status {
 		display: inline-block;

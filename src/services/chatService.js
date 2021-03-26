@@ -25,13 +25,14 @@ const ChatService = {
 	},
 
 	paginateMessages: (id, page) => {
-		return API.post('/chats/messages', {
+		return API.get('/chats/messages', {
 			params: {
 				id,
 				page,
 			},
 		})
 			.then(({ data }) => {
+				console.log(data);
 				return data;
 			})
 			.catch((error) => {

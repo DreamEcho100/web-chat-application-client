@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useRef, useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Picker } from 'emoji-mart/dist-modern/index.js';
@@ -8,10 +8,18 @@ import 'emoji-mart/css/emoji-mart.css';
 import './MessageInput.css';
 
 import ChatService from '../../../../services/chatService';
+import { incrementScroll } from '../../../../redux/chat/actions';
 
 const MessageInput = ({ chat }) => {
+	const dispatch = useDispatch();
+
 	const user = useSelector((state) => state.authReducer.user);
 	const socket = useSelector((state) => state.chatReducer.socket);
+	const senderTyping = useSelector((state) => state.chatReducer.senderTyping);
+	const senderTypingElementNearlyInView = useSelector(
+		(state) => state.chatReducer.senderTyping.senderTypingElementNearlyInView
+	);
+	const newMessage = useSelector((state) => state.chatReducer.newMessage);
 
 	const fileUpload = useRef();
 	const msgInput = useRef();
@@ -20,9 +28,6 @@ const MessageInput = ({ chat }) => {
 	const [image, setImage] = useState('');
 	const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 	const [selectingEmojiOnEmptyText, setSelectingEmojiOnEmptyText] = useState(
-		false
-	);
-	const [showNewMessageNotification, setShowNewMessageNotification] = useState(
 		false
 	);
 
@@ -118,20 +123,15 @@ const MessageInput = ({ chat }) => {
 		}
 	};
 
-	const showNewMessage = () => {};
+	const showNewMessage = () => {
+		dispatch(incrementScroll());
+	};
+
+	console.log(newMessage.seen);
 
 	return (
 		<div id='input-container'>
 			<div id='image-upload-container'>
-				<div>
-					{false ? (
-						<div className='message-notification' onClick={showNewMessage}>
-							<FontAwesomeIcon icon='bell' className='fa-icon' />
-							<p>New message!</p>
-						</div>
-					) : null}
-				</div>
-
 				<div className='image-upload'>
 					{image.name ? (
 						<div className='image-details'>
@@ -140,12 +140,12 @@ const MessageInput = ({ chat }) => {
 								<FontAwesomeIcon
 									onClick={handleImageUpload}
 									icon='upload'
-									className='fa-icon'
+									className='fa-icon cursor-pointer'
 								/>
 								<FontAwesomeIcon
 									onClick={() => setImage('')}
 									icon='times'
-									className='fa-icon'
+									className='fa-icon cursor-pointer'
 								/>
 							</div>
 						</div>
@@ -198,6 +198,28 @@ const MessageInput = ({ chat }) => {
 					onSelect={selectEmoji}
 				/>
 			) : null}
+
+			<div className='notifications'>
+				{senderTyping.typing &&
+				senderTyping.chatId === chat.id &&
+				!senderTypingElementNearlyInView ? (
+					<div className='senderTyping cursor-pointer'>
+						<p>
+							{senderTyping.fromUser.firstName} {senderTyping.fromUser.lastName}
+							...
+						</p>
+					</div>
+				) : null}
+				{newMessage.seen === false ? (
+					<div
+						className='message-notification cursor-pointer'
+						onClick={showNewMessage}
+					>
+						<FontAwesomeIcon icon='bell' className='fa-icon' />
+						<p>New message!</p>
+					</div>
+				) : null}
+			</div>
 		</div>
 	);
 };

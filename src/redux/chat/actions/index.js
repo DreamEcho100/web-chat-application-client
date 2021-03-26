@@ -9,6 +9,8 @@ import {
 	SET_SOCKET,
 	RECEIVED_MESSAGE,
 	SENDER_TYPING,
+	SET_MSGBOX_ELEMENT_AND_SENDERTYPING_ELEMENT,
+	SET_A_NEW_MESSAGE_SEEN,
 	PAGINATE_MESSAGES,
 	INCREMENT_SCROLL,
 	CREATE_CHAT,
@@ -61,4 +63,47 @@ export const receivedMessage = (message, userId) => (dispatch) => {
 
 export const senderTyping = (sender) => (dispatch) => {
 	dispatch({ type: SENDER_TYPING, payload: sender });
+};
+
+export const setMessageElementAndSenderTypingElement = (
+	msgBoxElement,
+	senderTypingElement,
+	senderTypingElementNearlyInView
+) => (dispatch) => {
+	dispatch({
+		type: SET_MSGBOX_ELEMENT_AND_SENDERTYPING_ELEMENT,
+		payload: {
+			msgBoxElement,
+			senderTypingElement,
+			senderTypingElementNearlyInView,
+		},
+	});
+};
+
+export const setANewMessageSeen = (seen) => (dispatch) => {
+	dispatch({
+		type: SET_A_NEW_MESSAGE_SEEN,
+		payload: { seen },
+	});
+};
+
+export const incrementScroll = () => (dispatch) => {
+	dispatch({ type: INCREMENT_SCROLL });
+};
+
+export const paginateMessages = (id, page) => (dispatch) => {
+	return ChatService.paginateMessages(id, page)
+		.then(({ messages, pagination }) => {
+			if (typeof messages !== 'undefined' && messages.length > 0) {
+				messages.reverse();
+				const payload = { messages, id, pagination };
+				dispatch({ type: PAGINATE_MESSAGES, payload });
+				return true;
+			}
+
+			return false;
+		})
+		.catch((error) => {
+			throw error;
+		});
 };
