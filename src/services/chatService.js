@@ -40,8 +40,22 @@ const ChatService = {
 			});
 	},
 
+	searchUsers: (term) => {
+		return API.get('/users/search-users', {
+			params: {
+				term,
+			},
+		})
+			.then(({ data }) => {
+				return data;
+			})
+			.catch((error) => {
+				throw error;
+			});
+	},
+
 	createChat: (partnerId) => {
-		return API.post(`/chats/create/${partnerId}`)
+		return API.post(`/chats/create`, { partnerId })
 			.then(({ data }) => {
 				return data;
 			})
