@@ -3,7 +3,7 @@
   justify-content: space-between;
   height: 6rem;
   background-color: var(--bg-main);
-  padding: 0 0.5em;
+  padding: 0 0.25em;
 }
 #navbar > h2 {
   display: flex;
@@ -26,7 +26,7 @@
   display: flex;
   align-self: center;
   color: white;
-  margin: 0 0.5em;
+  margin: 0 0.25em;
 }
 #navbar #profile-menu > img {
   display: flex;
@@ -60,15 +60,6 @@
 }
 #navbar #profile-menu #profile-options > p:hover {
   background-color: #eee;
-}
-#navbar #profile-menu .btn-success {
-  background-color: var(--success);
-  border: none;
-  padding: 0.25em;
-  width: 7rem;
-  color: white;
-  border-radius: 1rem;
-  font-weight: 600;
 }
 
 /*# sourceMappingURL=Navbar.css.map */

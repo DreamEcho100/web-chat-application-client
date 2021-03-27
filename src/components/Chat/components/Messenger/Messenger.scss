@@ -2,7 +2,7 @@
 	justify-content: space-between;
 	padding: 0.75em;
 	flex-grow: 2;
-	background-color: white;
+	background-color: var(--bg-gray);
 
 	#messenger-wrap {
 		display: flex;
@@ -21,6 +21,7 @@
 			background-color: #fff;
 			display: flex;
 			flex-direction: column;
+			z-index: 9;
 
 			& > div {
 				position: relative;

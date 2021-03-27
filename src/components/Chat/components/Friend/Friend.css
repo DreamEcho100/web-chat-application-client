@@ -27,7 +27,7 @@
   text-overflow: ellipsis;
 }
 .friend-list > div h5 {
-  font-size: calc(var(--header5) - 1.5rem);
+  font-size: calc(var(--header5) - 1.25rem);
   max-width: 10rem;
   max-height: 2rem;
   overflow: hidden;

@@ -88,7 +88,6 @@ const MessageBox = ({ chat }) => {
 
 		if (currentScrollPosition >= scrolHeight - limit) {
 			dispatch(setANewMessageSeen(true));
-			console.log(true, newMessage.seen);
 			setReceivingAnewMessage(false);
 		}
 	};
@@ -159,7 +158,6 @@ const MessageBox = ({ chat }) => {
 	}, [scrollBottom]);
 
 	useEffect(() => {
-		console.log('test');
 		setNewMessageElement(
 			document.getElementById(
 				`chat-${newMessage.chatId}-user-${newMessage.userId}-message-${newMessage.messageId}`

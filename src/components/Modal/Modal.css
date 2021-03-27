@@ -33,16 +33,17 @@
   font-family: Helvetica, Arial, sans-serif;
 }
 .modal-mask .modal-wrapper .modal-container .modal-header {
-  background-color: var(--bg-main);
+  background-color: var(--bg-dark);
   padding: 0.5em;
-  color: white;
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   text-align: center;
 }
+.modal-mask .modal-wrapper .modal-container .modal-header * {
+  color: white;
+}
 .modal-mask .modal-wrapper .modal-container .modal-body {
-  padding: 1em;
-  background-color: white;
+  background-image: linear-gradient(180deg, var(--bg-dark), var(--bg-main));
   text-align: left;
 }
 .modal-mask .modal-wrapper .modal-container .modal-body input {
@@ -50,21 +51,11 @@
 }
 .modal-mask .modal-wrapper .modal-container .modal-footer {
   padding: 0.5em;
-  background-color: white;
+  background-color: var(--bg-main);
   display: flex;
   justify-content: space-between;
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
-}
-.modal-mask .modal-wrapper .modal-container .modal-footer button {
-  background-color: var(--bg-main);
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-weight: 600;
-  padding: 0.45em 1em;
-  border-radius: 1rem;
-  min-width: max-content;
 }
 
 /*# sourceMappingURL=Modal.css.map */

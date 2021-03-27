@@ -39,9 +39,10 @@ const Login = ({ history }) => {
 					<div id='form-section'>
 						<h2>Welcome back</h2>
 
-						<form className='theme-1' onSubmit={handelFormSubmition}>
-							<div className='input-field'>
+						<form className='form-theme-1' onSubmit={handelFormSubmition}>
+							<div className='element-container-theme-1 form-element-theme-1'>
 								<input
+									className='input-theme-1 element-theme-1'
 									type='email'
 									placeholder='Email'
 									required
@@ -52,8 +53,9 @@ const Login = ({ history }) => {
 								/>
 							</div>
 
-							<div className='input-field'>
+							<div className='element-container-theme-1 form-element-theme-1'>
 								<input
+									className='input-theme-1 element-theme-1'
 									type='password'
 									placeholder='Password'
 									required
@@ -66,7 +68,14 @@ const Login = ({ history }) => {
 								/>
 							</div>
 
-							<button type='submit'>Login</button>
+							<div className='element-container-theme-1 form-element-theme-1'>
+								<button
+									className='button-theme-1 element-theme-1'
+									type='submit'
+								>
+									Login
+								</button>
+							</div>
 						</form>
 
 						<p>

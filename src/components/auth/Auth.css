@@ -36,7 +36,6 @@
 }
 #auth-container #auth-card > div #image-section {
   width: 60%;
-  /*height: 100%;*/
   margin-right: auto;
   border-top-left-radius: 2rem;
   border-bottom-left-radius: 2rem;
@@ -46,6 +45,7 @@
   #auth-container #auth-card > div #image-section {
     height: 18rem;
     min-height: 15rem;
+    max-width: 40rem;
     width: 80%;
     margin: 0 auto;
     border-top-left-radius: 0rem;
@@ -80,11 +80,14 @@
   color: var(--bg-dark);
   transition: 0.3s ease-in;
 }
-#auth-container #auth-card > div #form-section p a:active, #auth-container #auth-card > div #form-section p a:focus, #auth-container #auth-card > div #form-section p a:visited {
+#auth-container #auth-card > div #form-section p a:active, #auth-container #auth-card > div #form-section p a:visited {
   color: var(--bg-dark);
 }
-#auth-container #auth-card > div #form-section p a:hover {
+#auth-container #auth-card > div #form-section p a:focus, #auth-container #auth-card > div #form-section p a:hover {
   color: var(--bg-main);
+}
+#auth-container #auth-card > div #form-section button {
+  font-weight: 600;
 }
 
 /*# sourceMappingURL=Auth.css.map */

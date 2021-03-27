@@ -2,9 +2,15 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	border-bottom: 0.3rem solid #555;
 	height: fit-content;
 	max-height: 5rem;
+	position: relative;
+
+	hr {
+		position: absolute;
+		bottom: 0;
+		transform: translateY(100%);
+	}
 }
 
 #chatter {

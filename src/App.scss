@@ -6,6 +6,7 @@
 	--bg-light: #e2d6f8;
 	--bg-gray: #f5f6f8;
 	--success: #42b983;
+	--success-dark: #318860;
 	--danger: #b94242;
 }
 
@@ -53,79 +54,153 @@ body {
 	user-select: none;
 }
 
-form {
-	&.theme-1 {
-		padding: 1rem 2rem;
+.border-radius-1rem {
+	border-radius: 1rem;
+}
 
-		.input-field {
-			margin: 0.5em 0;
+.border-radius--half-1rem {
+	border-radius: 0.5rem;
+}
 
-			input {
-				&::placeholder {
-					font-weight: 300;
-					color: var(--bg-main);
-				}
-				&:focus {
-					&::placeholder {
-						color: #333;
-					}
-				}
-			}
+.margin-auto {
+	margin: auto;
+}
 
-			input,
-			select {
-				background-color: #f2f2f2;
-				border: none;
-				max-width: 30rem;
-				font-weight: 600;
-				padding: 0.25em 0.5em;
-				// border: 0.1rem solid #666;
-				height: 4rem;
-				width: 100%;
-				color: #333;
-				box-sizing: border-box;
-				margin: auto;
-				font-size: var(--small-size-text-2);
-				transition: font-size 0.4s cubic-bezier(0.19, 1, 0.22, 1),
-					font-weight 0.4s ease-in-out,
-					border 0.4s cubic-bezier(0.075, 0.82, 0.165, 1),
-					border-bottom 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+.text-align-center {
+	text-align: center;
+}
 
-				&:focus {
-					background-color: var(--bg-light);
-					color: #333;
-					border-color: transparent;
-					font-weight: 300;
-					font-size: var(--normal-size-text-1);
-					border-bottom: 0.2rem solid var(--bg-main);
-				}
-			}
+.element-container-theme-1 {
+	height: 4rem;
+	max-width: 30rem;
+}
+
+.element-theme-1 {
+	height: 100%;
+	width: 100%;
+	border: none;
+	padding: 0.25em 0.5em;
+	box-sizing: border-box;
+	border-color: transparent;
+	display: flex;
+	align-items: center;
+}
+
+.form-theme-1 {
+	padding: 1rem 2rem;
+
+	.form-element-theme-1 {
+		margin: 0.5em auto;
+	}
+}
+
+.input-theme-1 {
+	&::placeholder {
+		font-weight: 300;
+		color: var(--bg-main);
+	}
+	&:focus {
+		&::placeholder {
+			color: #333;
 		}
 	}
+}
 
-	button {
-		max-width: 30rem;
-		width: 100%;
-		height: 4rem;
-		background-color: var(--bg-main);
-		border: none;
-		cursor: pointer;
-		font-weight: 600;
-		color: white;
+.input-theme-1,
+.select-theme-1 {
+	background-color: #f2f2f2;
+	font-weight: 600;
+	color: #333;
+	font-size: var(--small-size-text-3);
+	transition: font-size 0.4s cubic-bezier(0.19, 1, 0.22, 1),
+		font-weight 0.4s ease-in-out,
+		border 0.4s cubic-bezier(0.075, 0.82, 0.165, 1),
+		border-bottom 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+	&:focus {
+		outline-color: var(--bg-light);
+		background-color: var(--bg-light);
+		color: #333;
 		border-color: transparent;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		text-align: center;
-		margin: auto;
-		transition: 0.3s ease-in;
-
-		&:hover,
-		&:focus {
-			background-color: var(--bg-dark);
-			color: white;
-		}
+		font-weight: 300;
+		font-size: var(--normal-size-text-1);
+		border-bottom: 0.3rem solid var(--bg-main);
 	}
+}
+
+.button-container-theme-1 {
+	height: 4rem;
+}
+
+.button-container-theme-2 {
+	height: 3.5rem;
+}
+
+.button-theme-1,
+.button-theme-2,
+.button-theme-3 {
+	cursor: pointer;
+	font-weight: 500;
+	color: white;
+	justify-content: center;
+	text-align: center;
+
+	&:hover,
+	&:focus {
+		color: white;
+	}
+}
+
+.button-theme-1 {
+	background-color: var(--bg-main);
+	transition: all 0.2s ease-in;
+
+	&:hover,
+	&:focus {
+		background-color: var(--bg-dark);
+	}
+
+	&:focus {
+		outline-color: var(--bg-main);
+	}
+}
+
+.button-theme-2 {
+	background-color: var(--success);
+	transition: all 0.1.8s ease-in;
+
+	&:hover,
+	&:focus {
+		background-color: var(--success-dark);
+	}
+
+	&:focus {
+		outline-color: var(--success);
+	}
+}
+
+.button-theme-3 {
+	color: white;
+	background-color: var(--bg-dark);
+	transition: all 0.2s ease-in;
+
+	&:hover,
+	&:focus {
+		color: var(--color-dark-1);
+		background-color: var(--bg-main);
+	}
+
+	&:focus {
+		outline-color: var(--bg-dark);
+	}
+}
+
+.hr-theme-1 {
+	border: 0.15rem solid var(--bg-dark);
+	background: var(--color-dark-3);
+	padding: 0.1rem 0;
+	width: 100%;
+	margin: 0.25em 0;
 }
 
 @media screen and (max-width: 800px) {

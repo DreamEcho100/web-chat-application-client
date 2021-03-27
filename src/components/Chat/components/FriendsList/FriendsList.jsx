@@ -23,7 +23,7 @@ const FriendsList = () => {
 	};
 
 	const searchFriends = (event) => {
-		ChatService.searchUsers(event.tatrget.value).then((response) =>
+		ChatService.searchUsers(event.target.value).then((response) =>
 			setSuggestions(response)
 		);
 	};
@@ -41,10 +41,17 @@ const FriendsList = () => {
 		<div id='friends' className='shadow-light'>
 			<div id='title'>
 				<h3>Friends</h3>
-				<button onClick={() => setShowFriendsModal(true)}>Add</button>
+				<div className='button-container-theme-2'>
+					<button
+						className='element-theme-1 button-theme-1 border-radius-1rem'
+						onClick={() => setShowFriendsModal(true)}
+					>
+						Add
+					</button>
+				</div>
 			</div>
 
-			<hr />
+			<hr className='hr-theme-1' />
 
 			<div id='friends-box'>
 				{chats.length > 0 ? (
@@ -63,19 +70,33 @@ const FriendsList = () => {
 						<h3>Create new Chat</h3>
 					</Fragment>
 					<Fragment key='body'>
-						<p>Find friends by typing their name bellow</p>
-						<input
-							onInput={(event) => searchFriends(event)}
-							type='text'
-							placeholder='Search...'
-						/>
+						<header className='search-for-friends'>
+							<p className='text-align-center'>
+								Find friends by typing their name bellow
+							</p>
+							<div className='element-container-theme-1 form-element-theme-1 margin-auto'>
+								<input
+									className='input-theme-1 element-theme-1'
+									onInput={(event) => searchFriends(event)}
+									type='text'
+									placeholder='Search...'
+								/>
+							</div>
+						</header>
 						<div id='suggestions'>
 							{suggestions.map((user) => (
 								<div key={user.id} className='suggestion'>
 									<p>
 										{user.firstName} {user.lastName}
 									</p>
-									<button onClick={() => addNewFriend(user.id)}>Add</button>
+									<div className='button-container-theme-2 form-element-theme-1'>
+										<button
+											className='element-theme-1 button-theme-2 border-radius--half-1rem'
+											onClick={() => addNewFriend(user.id)}
+										>
+											Add
+										</button>
+									</div>
 								</div>
 							))}
 						</div>

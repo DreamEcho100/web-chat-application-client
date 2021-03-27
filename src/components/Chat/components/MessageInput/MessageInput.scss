@@ -98,6 +98,8 @@
 	border-radius: var(--border-radius);
 
 	textarea {
+		outline-color: var(--bg-light);
+		border: 0.3rem solid var(--bg-light);
 		width: 100%;
 		min-height: 5rem;
 		min-width: 80%;

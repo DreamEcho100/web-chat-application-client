@@ -50,6 +50,7 @@ const ChatHeader = ({ chat }) => {
 				icon={['fas', 'ellipsis-v']}
 				className='fa-icon cursor-pointer'
 			/>
+			<hr className='hr-theme-1' />
 			{showChatOptions ? (
 				<div id='settings'>
 					<div onClick={() => setShowAddFriendModal(true)}>

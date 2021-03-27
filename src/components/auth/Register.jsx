@@ -69,9 +69,10 @@ const Register = ({ history }) => {
 					<div id='form-section'>
 						<h2>Create an account</h2>
 
-						<form className='theme-1' onSubmit={handelFormSubmition}>
-							<div className='input-field'>
+						<form className='form-theme-1' onSubmit={handelFormSubmition}>
+							<div className='element-container-theme-1 form-element-theme-1'>
 								<input
+									className='input-theme-1 element-theme-1'
 									onChange={(event) => setFirstName(event.target.value)}
 									value={firstName}
 									type='text'
@@ -82,8 +83,9 @@ const Register = ({ history }) => {
 								/>
 							</div>
 
-							<div className='input-field'>
+							<div className='element-container-theme-1 form-element-theme-1'>
 								<input
+									className='input-theme-1 element-theme-1'
 									onChange={(event) => setLastName(event.target.value)}
 									value={lastName}
 									type='text'
@@ -94,8 +96,9 @@ const Register = ({ history }) => {
 								/>
 							</div>
 
-							<div className='input-field'>
+							<div className='element-container-theme-1 form-element-theme-1'>
 								<input
+									className='input-theme-1 element-theme-1'
 									onChange={(event) => setEmail(event.target.value)}
 									value={email}
 									type='email'
@@ -104,8 +107,9 @@ const Register = ({ history }) => {
 								/>
 							</div>
 
-							<div className='input-field'>
+							<div className='element-container-theme-1 form-element-theme-1'>
 								<input
+									className='input-theme-1 element-theme-1'
 									onChange={(event) => setPassword(event.target.value)}
 									value={password}
 									type='password'
@@ -116,8 +120,9 @@ const Register = ({ history }) => {
 								/>
 							</div>
 
-							<div className='input-field'>
+							<div className='element-container-theme-1 form-element-theme-1'>
 								<select
+									className='select-theme-1 element-theme-1'
 									required
 									onChange={(event) => setGender(event.target.value)}
 									defaultValue='--Choose your gender.'
@@ -128,7 +133,14 @@ const Register = ({ history }) => {
 								</select>
 							</div>
 
-							<button type='submit'>Register</button>
+							<div className='element-container-theme-1 form-element-theme-1'>
+								<button
+									className='button-theme-1 element-theme-1'
+									type='submit'
+								>
+									Register
+								</button>
+							</div>
 						</form>
 
 						<p>

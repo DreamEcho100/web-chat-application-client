@@ -92,9 +92,10 @@ const Navbar = () => {
 						</Fragment>
 
 						<Fragment key='body'>
-							<form className='theme-1'>
-								<div className='input-field'>
+							<form className='form-theme-1'>
+								<div className='element-container-theme-1 form-element-theme-1'>
 									<input
+										className=' element-theme-1 input-theme-1'
 										onChange={(event) => setFirstName(event.target.value)}
 										value={firstName}
 										required='required'
@@ -105,8 +106,9 @@ const Navbar = () => {
 									/>
 								</div>
 
-								<div className='input-field'>
+								<div className='element-container-theme-1 form-element-theme-1'>
 									<input
+										className=' element-theme-1 input-theme-1'
 										onChange={(event) => setLastName(event.target.value)}
 										value={lastName}
 										required='required'
@@ -117,8 +119,9 @@ const Navbar = () => {
 									/>
 								</div>
 
-								<div className='input-field'>
+								<div className='element-container-theme-1 form-element-theme-1'>
 									<input
+										className=' element-theme-1 input-theme-1'
 										onChange={(event) => setEmail(event.target.value)}
 										value={email}
 										required='required'
@@ -127,8 +130,9 @@ const Navbar = () => {
 									/>
 								</div>
 
-								<div className='input-field'>
+								<div className='element-container-theme-1 form-element-theme-1'>
 									<input
+										className=' element-theme-1 input-theme-1'
 										onChange={(event) => setPassword(event.target.value)}
 										value={password}
 										required='required'
@@ -139,8 +143,9 @@ const Navbar = () => {
 									/>
 								</div>
 
-								<div className='input-field mb-1'>
+								<div className='element-container-theme-1 form-element-theme-1'>
 									<select
+										className=' element-theme-1 select-theme-1'
 										onChange={(event) => setGender(event.target.value)}
 										value={gender}
 										required='required'
@@ -151,9 +156,9 @@ const Navbar = () => {
 									</select>
 								</div>
 
-								<div className='input-field'>
+								<div className='element-container-theme-1 form-element-theme-1'>
 									<input
-										className='cursor-pointer'
+										className='cursor-pointer element-theme-1 input-theme-1'
 										onChange={(event) => setAvatar(event.target.files[0])}
 										type='file'
 									/>
@@ -162,9 +167,14 @@ const Navbar = () => {
 						</Fragment>
 
 						<Fragment key='footer'>
-							<button className='btn-success' onClick={submitForm}>
-								Update
-							</button>
+							<div className='button-container-theme-1 form-element-theme-1'>
+								<button
+									className='element-theme-1 button-theme-2 border-radius-1rem'
+									onClick={submitForm}
+								>
+									Update
+								</button>
+							</div>
 						</Fragment>
 					</Modal>
 				)}

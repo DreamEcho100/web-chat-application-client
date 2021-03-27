@@ -127,8 +127,6 @@ const MessageInput = ({ chat }) => {
 		dispatch(incrementScroll());
 	};
 
-	console.log(newMessage.seen);
-
 	return (
 		<div id='input-container'>
 			<div id='image-upload-container'>

@@ -21,9 +21,14 @@ const Modal = (props) => {
 					<div className='modal-header'>{findByKey('header')}</div>
 					<div className='modal-body'>{findByKey('body')}</div>
 					<div className='modal-footer'>
-						<button className='modal-close' onClick={closeModal}>
-							Close
-						</button>
+						<div className='button-container-theme-1'>
+							<button
+								className='modal-close element-theme-1 button-theme-3 border-radius-1rem'
+								onClick={closeModal}
+							>
+								Close
+							</button>
+						</div>
 						{findByKey('footer')}
 					</div>
 				</div>
