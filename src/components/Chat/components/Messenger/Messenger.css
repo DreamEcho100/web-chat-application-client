@@ -9,6 +9,11 @@
   	margin-bottom: 0.5em;
   }*/
 }
+@media screen and (max-width: 800px) {
+  #messenger {
+    margin: 1em 0;
+  }
+}
 #messenger #messenger-wrap {
   display: flex;
   flex-direction: column;

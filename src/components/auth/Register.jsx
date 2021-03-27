@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 // import axios from 'axios';
 import { useDispatch } from 'react-redux';
@@ -17,6 +17,8 @@ const Register = ({ history }) => {
 	const [gender, setGender] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+
+	const firstNameInputRef = useRef();
 
 	const handelFormSubmition = (event) => {
 		event.preventDefault();
@@ -58,6 +60,13 @@ const Register = ({ history }) => {
 		// 	.catch((error) => console.error('Error', error));
 	};
 
+	useEffect(() => {
+		if (!firstNameInputRef.current) {
+			return;
+		}
+		firstNameInputRef.current.focus();
+	}, [firstNameInputRef.current]);
+
 	return (
 		<section id='auth-container' className='register'>
 			<div id='auth-card'>
@@ -73,6 +82,7 @@ const Register = ({ history }) => {
 							<div className='element-container-theme-1 form-element-theme-1'>
 								<input
 									className='input-theme-1 element-theme-1'
+									ref={firstNameInputRef}
 									onChange={(event) => setFirstName(event.target.value)}
 									value={firstName}
 									type='text'

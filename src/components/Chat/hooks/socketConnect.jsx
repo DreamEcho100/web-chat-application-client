@@ -8,6 +8,7 @@ import {
 	setSocket,
 	receivedMessage,
 	senderTyping,
+	createChat,
 } from '../../../redux/chat/actions';
 import BACK_END_URL from '../../../services/BACK_END_URL';
 
@@ -25,28 +26,28 @@ const useSocket = (user, dispatch) => {
 				socket.emit('join', user);
 
 				socket.on('typing', (sender) => {
-					console.log('Event', sender);
 					// dispatch
 					dispatch(senderTyping(sender));
 				});
 
 				socket.on('friends', (friends) => {
-					console.log('Event', friends);
 					dispatch(onlineFriends(friends));
 				});
 
 				socket.on('online', (user) => {
-					console.log('Event', user);
 					dispatch(onlineFriend(user));
 				});
 
 				socket.on('offline', (user) => {
-					console.log('Event', user);
 					dispatch(offlineFriend(user));
 				});
 
 				socket.on('received', (message) => {
 					dispatch(receivedMessage(message, user.id));
+				});
+
+				socket.on('new-chat', (chat) => {
+					dispatch(createChat(chat));
 				});
 			})
 			.catch((error) => console.error(error));

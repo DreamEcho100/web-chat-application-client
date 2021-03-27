@@ -269,19 +269,6 @@ const chatReducer = (state = initialState, action) => {
 			break;
 		}
 
-		case INCREMENT_SCROLL: {
-			return {
-				...state,
-				scrollBottom: state.scrollBottom + 1,
-				newMessage: {
-					chatId: null,
-					userId: null,
-					messageId: null,
-					seen: true,
-				},
-			};
-		}
-
 		case PAGINATE_MESSAGES: {
 			const { messages, id, pagination } = payload;
 
@@ -311,6 +298,28 @@ const chatReducer = (state = initialState, action) => {
 				...state,
 				chats: chatsCopy,
 				currentChat: currentChatCopy,
+			};
+			// eslint-disable-next-line no-unreachable
+			break;
+		}
+
+		case INCREMENT_SCROLL: {
+			return {
+				...state,
+				scrollBottom: state.scrollBottom + 1,
+				newMessage: {
+					chatId: null,
+					userId: null,
+					messageId: null,
+					seen: true,
+				},
+			};
+		}
+
+		case CREATE_CHAT: {
+			return {
+				...state,
+				chats: [...state.chats, ...[payload]],
 			};
 			// eslint-disable-next-line no-unreachable
 			break;

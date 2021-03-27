@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 // import axios from 'axios';
 import { useDispatch } from 'react-redux';
@@ -15,6 +15,8 @@ const Login = ({ history }) => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
+	const emailInputRef = useRef();
+
 	const handelFormSubmition = (event) => {
 		event.preventDefault();
 
@@ -27,6 +29,13 @@ const Login = ({ history }) => {
 		// 	.then((data) => console.log(data))
 		// 	.catch((error) => console.error('Error', error));
 	};
+
+	useEffect(() => {
+		if (!emailInputRef.current) {
+			return;
+		}
+		emailInputRef.current.focus();
+	}, [emailInputRef.current]);
 
 	return (
 		<section id='auth-container' className='login'>
@@ -43,6 +52,7 @@ const Login = ({ history }) => {
 							<div className='element-container-theme-1 form-element-theme-1'>
 								<input
 									className='input-theme-1 element-theme-1'
+									ref={emailInputRef}
 									type='email'
 									placeholder='Email'
 									required

@@ -4,6 +4,10 @@
 	flex-grow: 2;
 	background-color: var(--bg-gray);
 
+	@media screen and (max-width: 800px) {
+		margin: 1em 0;
+	}
+
 	#messenger-wrap {
 		display: flex;
 		flex-direction: column;

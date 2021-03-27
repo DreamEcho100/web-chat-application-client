@@ -87,10 +87,6 @@ export const setANewMessageSeen = (seen) => (dispatch) => {
 	});
 };
 
-export const incrementScroll = () => (dispatch) => {
-	dispatch({ type: INCREMENT_SCROLL });
-};
-
 export const paginateMessages = (id, page) => (dispatch) => {
 	return ChatService.paginateMessages(id, page)
 		.then(({ messages, pagination }) => {
@@ -106,4 +102,12 @@ export const paginateMessages = (id, page) => (dispatch) => {
 		.catch((error) => {
 			throw error;
 		});
+};
+
+export const incrementScroll = () => (dispatch) => {
+	dispatch({ type: INCREMENT_SCROLL });
+};
+
+export const createChat = (chat) => (dispatch) => {
+	dispatch({ type: CREATE_CHAT, payload: chat });
 };

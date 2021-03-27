@@ -56,8 +56,15 @@ const MessageBox = ({ chat }) => {
 			parseFloat(getComputedStyle(senderTypingElement.current).padding) -
 			parseFloat(getComputedStyle(senderTypingElement.current).marginTop);
 
-		if (senderTyping.typing && currentScrollPosition >= scrolHeight - limit) {
-			if (!senderTypingElementNearlyInView) {
+		if (
+			(senderTyping.typing && currentScrollPosition >= scrolHeight - limit) ||
+			msgBoxElement.current.scrollHeight === msgBoxElement.current.clientHeight
+		) {
+			if (
+				!senderTypingElementNearlyInView ||
+				msgBoxElement.current.scrollHeight ===
+					msgBoxElement.current.clientHeight
+			) {
 				dispatch(setMessageElementAndSenderTypingElement(null, null, true));
 			}
 			// setSenderTypingElementNearlyInView(true);
@@ -83,10 +90,10 @@ const MessageBox = ({ chat }) => {
 			parseFloat(getComputedStyle(newMessageElement).padding) -
 			parseFloat(getComputedStyle(newMessageElement).marginTop);
 
-		// const currentScrollPosition = msgBox.scrollTop;
-		// const scrolHeight = msgBox.scrollHeight - msgBox.offsetHeight;
-
-		if (currentScrollPosition >= scrolHeight - limit) {
+		if (
+			currentScrollPosition >= scrolHeight - limit ||
+			msgBoxElement.current.scrollHeight === msgBoxElement.current.clientHeight
+		) {
 			dispatch(setANewMessageSeen(true));
 			setReceivingAnewMessage(false);
 		}

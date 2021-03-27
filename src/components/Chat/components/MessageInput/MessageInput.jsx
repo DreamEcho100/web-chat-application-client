@@ -208,7 +208,7 @@ const MessageInput = ({ chat }) => {
 						</p>
 					</div>
 				) : null}
-				{newMessage.seen === false ? (
+				{newMessage.seen === false && chat.id === newMessage.chatId ? (
 					<div
 						className='message-notification cursor-pointer'
 						onClick={showNewMessage}

@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState, Fragment, useRef, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import './FriendsList.css';
@@ -12,8 +12,10 @@ import ChatService from '../../../../services/chatService';
 const FriendsList = () => {
 	const dispatch = useDispatch();
 
+	const searchInputRef = useRef();
+
 	const chats = useSelector((state) => state.chatReducer.chats);
-	const socket = useSelector((state) => state.chatReducer.chats);
+	const socket = useSelector((state) => state.chatReducer.socket);
 
 	const [showFriendsModal, setShowFriendsModal] = useState(false);
 	const [suggestions, setSuggestions] = useState([]);
@@ -23,9 +25,11 @@ const FriendsList = () => {
 	};
 
 	const searchFriends = (event) => {
-		ChatService.searchUsers(event.target.value).then((response) =>
-			setSuggestions(response)
-		);
+		const value = event.target.value;
+		// if (value.replace(/\s/g, '').length < 3) {
+		// 	return;
+		// }
+		ChatService.searchUsers(value).then((response) => setSuggestions(response));
 	};
 
 	const addNewFriend = (id) => {
@@ -36,6 +40,13 @@ const FriendsList = () => {
 			})
 			.catch((error) => console.log(error));
 	};
+
+	useEffect(() => {
+		if (!searchInputRef.current) {
+			return;
+		}
+		searchInputRef.current.focus();
+	}, [searchInputRef.current]);
 
 	return (
 		<div id='friends' className='shadow-light'>
@@ -76,6 +87,7 @@ const FriendsList = () => {
 							</p>
 							<div className='element-container-theme-1 form-element-theme-1 margin-auto'>
 								<input
+									ref={searchInputRef}
 									className='input-theme-1 element-theme-1'
 									onInput={(event) => searchFriends(event)}
 									type='text'
