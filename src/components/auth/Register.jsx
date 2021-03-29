@@ -65,6 +65,7 @@ const Register = ({ history }) => {
 			return;
 		}
 		firstNameInputRef.current.focus();
+		// firstNameInputRef.current.select();
 	}, [firstNameInputRef.current]);
 
 	return (

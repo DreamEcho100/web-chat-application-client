@@ -15,7 +15,14 @@ const Modal = (props) => {
 	};
 
 	return (
-		<div className='modal-mask modal-close' onClick={closeModal}>
+		<div
+			className={
+				props.className
+					? `${props.className} modal-mask modal-close`
+					: 'modal-mask modal-close'
+			}
+			onClick={closeModal}
+		>
 			<div className='modal-wrapper'>
 				<div className='modal-container'>
 					<div className='modal-header'>{findByKey('header')}</div>

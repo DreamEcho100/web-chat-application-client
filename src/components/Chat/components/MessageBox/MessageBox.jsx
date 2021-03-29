@@ -51,15 +51,20 @@ const MessageBox = ({ chat }) => {
 			return;
 		}
 
+		if (
+			msgBoxElement.current.scrollHeight === msgBoxElement.current.clientHeight
+		) {
+			return dispatch(
+				setMessageElementAndSenderTypingElement(null, null, true)
+			);
+		}
+
 		const limit =
 			senderTypingElement.current.offsetHeight +
 			parseFloat(getComputedStyle(senderTypingElement.current).padding) -
 			parseFloat(getComputedStyle(senderTypingElement.current).marginTop);
 
-		if (
-			(senderTyping.typing && currentScrollPosition >= scrolHeight - limit) ||
-			msgBoxElement.current.scrollHeight === msgBoxElement.current.clientHeight
-		) {
+		if (senderTyping.typing && currentScrollPosition >= scrolHeight - limit) {
 			if (
 				!senderTypingElementNearlyInView ||
 				msgBoxElement.current.scrollHeight ===
@@ -85,15 +90,20 @@ const MessageBox = ({ chat }) => {
 			return;
 		}
 
+		if (
+			msgBoxElement.current.scrollHeight === msgBoxElement.current.clientHeight
+		) {
+			dispatch(setANewMessageSeen(true));
+			setReceivingAnewMessage(false);
+			return;
+		}
+
 		const limit =
 			newMessageElement.offsetHeight +
 			parseFloat(getComputedStyle(newMessageElement).padding) -
 			parseFloat(getComputedStyle(newMessageElement).marginTop);
 
-		if (
-			currentScrollPosition >= scrolHeight - limit ||
-			msgBoxElement.current.scrollHeight === msgBoxElement.current.clientHeight
-		) {
+		if (currentScrollPosition >= scrolHeight - limit) {
 			dispatch(setANewMessageSeen(true));
 			setReceivingAnewMessage(false);
 		}

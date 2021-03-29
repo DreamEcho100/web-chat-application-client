@@ -7,15 +7,6 @@
   margin: 0 0.25em;
   background-color: var(--bg-gray);
 }
-#friends .modal-mask * {
-  color: var(--color-dark-1);
-}
-#friends .modal-mask * .button-theme-3 {
-  color: white;
-}
-#friends .modal-mask * .button-theme-3:focus, #friends .modal-mask * .button-theme-3:hover {
-  color: var(--color-dark-1);
-}
 #friends #title {
   display: flex;
   justify-content: space-between;
@@ -38,12 +29,6 @@
 }
 #friends .opened {
   background-color: #ececec;
-}
-#friends .search-for-friends {
-  padding: 0 0.5em;
-}
-#friends .search-for-friends input {
-  margin: 0.5em auto;
 }
 #friends #suggestions {
   margin-top: 1em;

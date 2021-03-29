@@ -325,6 +325,49 @@ const chatReducer = (state = initialState, action) => {
 			break;
 		}
 
+		case ADD_USER_TO_GROUP: {
+			const { chat, chatters } = payload;
+
+			let exists = false;
+
+			const chatsCopy = state.chats.map((chatState) => {
+				if (chat.id === chatState.id) {
+					exists = true;
+
+					return {
+						...chatState,
+						Users: [...chatState.Users, ...chatters],
+					};
+				}
+
+				return chatState;
+			});
+
+			if (!exists) {
+				chatsCopy.push(chat);
+			}
+
+			let currentChatCopy = { ...state.currentChat };
+
+			if (Object.keys(currentChatCopy).length > 0) {
+				if (chat.id === currentChatCopy.id) {
+					currentChatCopy = {
+						...state.currentChat,
+						Users: [...state.currentChat.Users, ...chatters],
+					};
+				}
+			}
+
+			return {
+				...state,
+				chats: chatsCopy,
+				currentChat: currentChatCopy,
+			};
+
+			// eslint-disable-next-line no-unreachable
+			break;
+		}
+
 		default:
 			return state;
 			// eslint-disable-next-line no-unreachable

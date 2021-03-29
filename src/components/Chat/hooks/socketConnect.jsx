@@ -9,6 +9,7 @@ import {
 	receivedMessage,
 	senderTyping,
 	createChat,
+	addUserToGroup,
 } from '../../../redux/chat/actions';
 import BACK_END_URL from '../../../services/BACK_END_URL';
 
@@ -48,6 +49,10 @@ const useSocket = (user, dispatch) => {
 
 				socket.on('new-chat', (chat) => {
 					dispatch(createChat(chat));
+				});
+
+				socket.on('added-user-to-group', (group) => {
+					dispatch(addUserToGroup(group));
 				});
 			})
 			.catch((error) => console.error(error));

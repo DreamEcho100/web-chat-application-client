@@ -35,6 +35,7 @@ const Login = ({ history }) => {
 			return;
 		}
 		emailInputRef.current.focus();
+		// emailInputRef.current.select();
 	}, [emailInputRef.current]);
 
 	return (

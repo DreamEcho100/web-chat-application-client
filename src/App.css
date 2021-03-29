@@ -187,6 +187,33 @@ body {
   margin: 0.25em 0;
 }
 
+/*------------------------*/
+.search-friends-modal .search-for-friends {
+  padding: 0 0.5em;
+}
+.search-friends-modal .search-for-friends input {
+  margin: 0.5em auto;
+}
+.search-friends-modal .suggestions .suggestion {
+  padding: 0.25em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.search-friends-modal .suggestions .suggestion:nth-child(1) {
+  margin-top: 0.5em;
+}
+.search-friends-modal * {
+  color: var(--color-dark-1);
+}
+.search-friends-modal * .button-theme-3 {
+  color: white;
+}
+.search-friends-modal * .button-theme-3:focus, .search-friends-modal * .button-theme-3:hover {
+  color: var(--color-dark-1);
+}
+
+/*------------------------*/
 @media screen and (max-width: 800px) {
   :root {
     font-size: 55%;

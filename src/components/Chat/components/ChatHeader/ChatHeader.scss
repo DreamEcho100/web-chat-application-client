@@ -17,9 +17,11 @@
 	overflow-y: auto;
 	display: flex;
 	text-align: left;
+	line-height: 2.3rem;
+	margin-bottom: 1em;
 
 	h3 {
-		margin: 0 0.5em 0 0;
+		margin: 0 0.25em 0 0;
 	}
 
 	.chatter-info {

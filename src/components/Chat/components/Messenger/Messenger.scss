@@ -59,15 +59,9 @@
 		}
 	}
 
-	& > div {
-		flex-grow: 1;
-	}
-
-	input {
-		border: none;
-		background-color: #f5f6f8;
-		padding: 0.5em;
-	}
+	// & > div {
+	// 	flex-grow: 1;
+	// }
 
 	/*hr {
 		border-top: 0.1rem solid #cfcfcf;
@@ -83,24 +77,5 @@
 		color: white;
 		border-radius: 1rem;
 		cursor: pointer;
-	}
-
-	#suggestions {
-		.suggestion {
-			margin: 0.5em 0;
-			padding: 0.25em;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-
-			button {
-				background-color: var(--success);
-				border-radius: 1rem;
-				border: none;
-				height: 2.5rem;
-				color: white;
-				cursor: pointer;
-			}
-		}
 	}
 }

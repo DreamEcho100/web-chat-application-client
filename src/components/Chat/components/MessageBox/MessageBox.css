@@ -3,6 +3,7 @@
   overflow-y: scroll;
   flex-grow: 2;
   margin: 0.5em 0;
+  min-height: 25rem;
   max-height: 40rem;
 }
 #msg-box .other-person {

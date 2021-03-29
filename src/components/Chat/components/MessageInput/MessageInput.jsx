@@ -16,9 +16,6 @@ const MessageInput = ({ chat }) => {
 	const user = useSelector((state) => state.authReducer.user);
 	const socket = useSelector((state) => state.chatReducer.socket);
 	const senderTyping = useSelector((state) => state.chatReducer.senderTyping);
-	const senderTypingElementNearlyInView = useSelector(
-		(state) => state.chatReducer.senderTyping.senderTypingElementNearlyInView
-	);
 	const newMessage = useSelector((state) => state.chatReducer.newMessage);
 
 	const fileUpload = useRef();
@@ -127,6 +124,10 @@ const MessageInput = ({ chat }) => {
 		dispatch(incrementScroll());
 	};
 
+	console.log(
+		senderTyping.msgBoxElement,
+		!senderTyping.senderTypingElementNearlyInView
+	);
 	return (
 		<div id='input-container'>
 			<div id='image-upload-container'>
@@ -188,6 +189,7 @@ const MessageInput = ({ chat }) => {
 					emoji='point_up'
 					style={{
 						position: 'absolute',
+						zIndex: '10',
 						width: '35.3rem',
 						bottom: '5rem',
 						right: '2rem',
@@ -200,11 +202,12 @@ const MessageInput = ({ chat }) => {
 			<div className='notifications'>
 				{senderTyping.typing &&
 				senderTyping.chatId === chat.id &&
-				!senderTypingElementNearlyInView ? (
+				senderTyping.msgBoxElement &&
+				!senderTyping.senderTypingElementNearlyInView ? (
 					<div className='senderTyping cursor-pointer'>
 						<p>
-							{senderTyping.fromUser.firstName} {senderTyping.fromUser.lastName}
-							...
+							{senderTyping.fromUser.firstName} {senderTyping.fromUser.lastName}{' '}
+							typing ...
 						</p>
 					</div>
 				) : null}

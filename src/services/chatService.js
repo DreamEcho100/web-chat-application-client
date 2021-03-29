@@ -63,6 +63,16 @@ const ChatService = {
 			});
 	},
 
+	addFriendToGroupChat: (userId, chatId) => {
+		return API.post('/chats/add-user-to-group', { userId, chatId })
+			.then(({ data }) => {
+				return data;
+			})
+			.catch((error) => {
+				throw error;
+			});
+	},
+
 	deleteCurrentChat: (chatId) => {
 		return API.delete(`/chats/${chatId}`)
 			.then(({ data }) => {

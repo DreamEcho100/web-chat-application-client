@@ -76,7 +76,10 @@ const FriendsList = () => {
 				)}
 			</div>
 			{showFriendsModal && (
-				<Modal click={() => setShowFriendsModal(false)}>
+				<Modal
+					className='search-friends-modal'
+					click={() => setShowFriendsModal(false)}
+				>
 					<Fragment key='header'>
 						<h3>Create new Chat</h3>
 					</Fragment>
@@ -95,7 +98,7 @@ const FriendsList = () => {
 								/>
 							</div>
 						</header>
-						<div id='suggestions'>
+						<div className='suggestions'>
 							{suggestions.map((user) => (
 								<div key={user.id} className='suggestion'>
 									<p>

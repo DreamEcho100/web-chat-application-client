@@ -111,3 +111,7 @@ export const incrementScroll = () => (dispatch) => {
 export const createChat = (chat) => (dispatch) => {
 	dispatch({ type: CREATE_CHAT, payload: chat });
 };
+
+export const addUserToGroup = (data) => (dispatch) => {
+	dispatch({ type: ADD_USER_TO_GROUP, payload: data });
+};
