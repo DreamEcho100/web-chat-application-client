@@ -10,6 +10,8 @@ import {
 	senderTyping,
 	createChat,
 	addUserToGroup,
+	leaveCurrentChat,
+	deleteCurrentChat,
 } from '../../../redux/chat/actions';
 import BACK_END_URL from '../../../services/BACK_END_URL';
 
@@ -48,11 +50,22 @@ const useSocket = (user, dispatch) => {
 				});
 
 				socket.on('new-chat', (chat) => {
+					// console.log(chat);
 					dispatch(createChat(chat));
 				});
 
 				socket.on('added-user-to-group', (group) => {
+					// console.log(group);
 					dispatch(addUserToGroup(group));
+				});
+
+				socket.on('remove-user-from-chat', (data) => {
+					data.currentUserId = user.id;
+					dispatch(leaveCurrentChat(data));
+				});
+
+				socket.on('delete-chat', (data) => {
+					dispatch(deleteCurrentChat(data));
 				});
 			})
 			.catch((error) => console.error(error));

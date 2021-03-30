@@ -15,40 +15,6 @@
 		height: 100%;
 		position: relative;
 
-		#settings {
-			border-radius: 0.5rem;
-			position: absolute;
-			right: 1.2rem;
-			top: 0.8rem;
-			padding: 0.25em;
-			border: 0.1rem solid #d9d9d9;
-			background-color: #fff;
-			display: flex;
-			flex-direction: column;
-			z-index: 9;
-
-			& > div {
-				position: relative;
-				display: flex;
-				align-items: center;
-				padding: 0.25em;
-				cursor: pointer;
-
-				.fa-icon {
-					position: relative;
-					font-size: 2rem;
-					color: var(--bg-main);
-					margin-right: 0.25em;
-					min-width: 1em;
-				}
-			}
-
-			p {
-				margin: 0.25em 0;
-				color: #000;
-			}
-		}
-
 		& > .fa-icon {
 			font-size: 2rem;
 			color: var(--bg-main);

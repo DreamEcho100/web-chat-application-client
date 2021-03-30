@@ -124,10 +124,6 @@ const MessageInput = ({ chat }) => {
 		dispatch(incrementScroll());
 	};
 
-	console.log(
-		senderTyping.msgBoxElement,
-		!senderTyping.senderTypingElementNearlyInView
-	);
 	return (
 		<div id='input-container'>
 			<div id='image-upload-container'>

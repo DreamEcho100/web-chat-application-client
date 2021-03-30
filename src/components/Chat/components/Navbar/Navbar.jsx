@@ -66,22 +66,26 @@ const Navbar = () => {
 				/>
 
 				{showProfileOptions && (
-					<div id='profile-options'>
-						<p
-							className='cursor-pointer user-select-none'
-							onClick={() => {
-								setShowProfileModal(true);
-								setShowProfileOptions(false);
-							}}
-						>
-							Update profile
-						</p>
-						<p
-							className='cursor-pointer user-select-none'
-							onClick={() => dispatch(logout())}
-						>
-							Logout
-						</p>
+					<div className='settings-menu-theme-1'>
+						<div className='settings-menu-item-theme-1'>
+							<p
+								className='cursor-pointer user-select-none settings-menu-item-title-theme-1'
+								onClick={() => {
+									setShowProfileModal(true);
+									setShowProfileOptions(false);
+								}}
+							>
+								Update profile
+							</p>
+						</div>
+						<div className='settings-menu-item-theme-1'>
+							<p
+								className='cursor-pointer user-select-none settings-menu-item-title-theme-1'
+								onClick={() => dispatch(logout())}
+							>
+								Logout
+							</p>
+						</div>
 					</div>
 				)}
 

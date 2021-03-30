@@ -203,6 +203,58 @@ body {
 	margin: 0.25em 0;
 }
 
+.settings-menu-theme-1,
+.settings-menu-theme-2 {
+	position: absolute;
+	border-radius: 0.5rem;
+	padding: 0.25em 0em;
+	border: 0.1rem solid #d9d9d9;
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	z-index: 9;
+}
+.settings-menu-theme-1 {
+	top: 5.5rem;
+	right: 0rem;
+}
+
+.settings-menu-theme-2 {
+	right: 1.2rem;
+	top: 0.8rem;
+}
+.settings-menu-item-theme-1 {
+	position: relative;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	margin: 0.1em 0.5em;
+
+	.fa-icon {
+		position: relative;
+		font-size: 2rem;
+		color: var(--bg-main);
+		margin-right: 0.25em;
+		min-width: 1em;
+		transition: all 0.2s ease-in;
+	}
+
+	&:hover {
+		.fa-icon {
+			color: var(--bg-dark);
+		}
+		.settings-menu-item-title-theme-1 {
+			background-color: #eee;
+		}
+	}
+}
+.settings-menu-item-title-theme-1 {
+	width: 100%;
+	min-width: max-content;
+	padding: 0.25em 0.2em;
+	transition: all 0.2s ease-in;
+}
+
 /*------------------------*/
 
 .search-friends-modal {

@@ -24,29 +24,44 @@ const FriendsList = () => {
 		dispatch(setCurrentChat(chat));
 	};
 
+	let searchFriendsSetTimeoutId;
+
 	const searchFriends = (event) => {
 		const value = event.target.value;
-		// if (value.replace(/\s/g, '').length < 3) {
-		// 	return;
-		// }
-		ChatService.searchUsers(value).then((response) => setSuggestions(response));
+		if (!(value.replace(/\s/g, '').length > 0)) {
+			return;
+		}
+		clearTimeout(searchFriendsSetTimeoutId);
+		searchFriendsSetTimeoutId = setTimeout(() => {
+			// if (value.replace(/\s/g, '').length < 3) {
+			// 	return;
+			// }
+			ChatService.searchUsers(value).then((response) =>
+				setSuggestions(response)
+			);
+		}, 1000);
 	};
 
 	const addNewFriend = (id) => {
 		ChatService.createChat(id)
 			.then((chats) => {
 				socket.emit('add-friend', chats);
+				// setSuggestions(
+				// 	suggestions.filter((user) => {
+				// 		return user.id !== id;
+				// 	})
+				// );
 				setShowFriendsModal(false);
 			})
-			.catch((error) => console.log(error));
+			.catch((error) => console.error(error));
 	};
 
-	useEffect(() => {
-		if (!searchInputRef.current) {
-			return;
-		}
-		searchInputRef.current.focus();
-	}, [searchInputRef.current]);
+	// useEffect(() => {
+	// 	if (!searchInputRef.current) {
+	// 		return;
+	// 	}
+	// 	searchInputRef.current.focus();
+	// }, [searchInputRef.current]);
 
 	return (
 		<div id='friends' className='shadow-light'>
@@ -55,7 +70,15 @@ const FriendsList = () => {
 				<div className='button-container-theme-2'>
 					<button
 						className='element-theme-1 button-theme-1 border-radius-1rem'
-						onClick={() => setShowFriendsModal(true)}
+						onClick={() => {
+							setShowFriendsModal(true);
+							setTimeout(() => {
+								if (!searchInputRef.current) {
+									return;
+								}
+								searchInputRef.current.focus();
+							}, 100);
+						}}
 					>
 						Add
 					</button>

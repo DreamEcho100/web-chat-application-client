@@ -42,24 +42,5 @@
 #navbar #profile-menu .fa-icon * {
   color: white;
 }
-#navbar #profile-menu #profile-options {
-  position: absolute;
-  top: 5rem;
-  border-radius: 0.5rem;
-  padding: 0 0.25em;
-  right: 0.5rem;
-  border: 0.1rem solid #d9d9d9;
-  background-color: white;
-  z-index: 9999;
-}
-#navbar #profile-menu #profile-options > p {
-  margin: 0.25em 0.25em;
-  padding: 0.25em 0.25em;
-  width: max-content;
-  color: black;
-}
-#navbar #profile-menu #profile-options > p:hover {
-  background-color: #eee;
-}
 
 /*# sourceMappingURL=Navbar.css.map */

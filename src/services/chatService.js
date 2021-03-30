@@ -73,6 +73,16 @@ const ChatService = {
 			});
 	},
 
+	leaveCurrentChat: (chatId) => {
+		return API.post('/chats/leave-current-chat', { chatId })
+			.then(({ data }) => {
+				return data;
+			})
+			.catch((error) => {
+				throw error;
+			});
+	},
+
 	deleteCurrentChat: (chatId) => {
 		return API.delete(`/chats/${chatId}`)
 			.then(({ data }) => {

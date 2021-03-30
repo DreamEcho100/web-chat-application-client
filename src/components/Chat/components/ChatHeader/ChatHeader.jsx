@@ -14,35 +14,89 @@ const ChatHeader = ({ chat }) => {
 	const [showAddFriendsModal, setShowAddFriendsModal] = useState(false);
 	const [showLeaveChatModal, setShowLeaveChatModal] = useState(false);
 	const [showDeleteChatModal, setShowDeleteChatModal] = useState(false);
+	const [chatType, setChatType] = useState(chat.type);
 	const [suggestions, setSuggestions] = useState([]);
 
 	const searchInputRef = useRef();
 
 	const socket = useSelector((state) => state.chatReducer.socket);
 
+	let searchFriendsSetTimeoutId;
+
 	const searchFriends = (event) => {
 		const value = event.target.value;
-		// if (value.replace(/\s/g, '').length < 3) {
-		// 	return;
-		// }
-		ChatService.searchUsers(value).then((response) => setSuggestions(response));
+		if (!(value.replace(/\s/g, '').length > 0)) {
+			return;
+		}
+		clearTimeout(searchFriendsSetTimeoutId);
+		searchFriendsSetTimeoutId = setTimeout(() => {
+			// if (value.replace(/\s/g, '').length < 3) {
+			// 	return;
+			// }
+			ChatService.searchUsers(value).then((response) => {
+				const availableUsers = chat.Users.map((user) => {
+					return user.id;
+				});
+				const responseFiltered = response.filter((user) => {
+					return !availableUsers.includes(user.id);
+				});
+				return setSuggestions(responseFiltered);
+			});
+		}, 1000);
 	};
+	// const searchFriends = (event) => {
+	// 	const value = event.target.value;
+	// 	// if (value.replace(/\s/g, '').length < 3) {
+	// 	// 	return;
+	// 	// }
+	// 	ChatService.searchUsers(value).then((response) => {
+	// 		const availableUsers = chat.Users.map((user) => {
+	// 			return user.id;
+	// 		});
+	// 		const responseFiltered = response.filter((user) => {
+	// 			return !availableUsers.includes(user.id);
+	// 		});
+	// 		return setSuggestions(responseFiltered);
+	// 	});
+	// };
 
 	const addNewFriend = (id) => {
 		ChatService.addFriendToGroupChat(id, chat.id)
 			.then((data) => {
 				socket.emit('add-user-to-group', data);
+				setSuggestions(
+					suggestions.filter((user) => {
+						return user.id !== id;
+					})
+				);
+				setChatType(data.chat.type);
 				setShowAddFriendsModal(false);
 			})
-			.catch((error) => console.log(error));
+			.catch((error) => console.error(error));
 	};
 
 	const leaveChat = () => {
-		return;
+		ChatService.leaveCurrentChat(chat.id)
+			.then((data) => {
+				socket.emit('leave-current-chat', data);
+				setShowAddFriendsModal(false);
+				setShowChatOptions(false);
+			})
+			.catch((error) => {
+				console.error(error);
+			});
 	};
 
 	const deleteChat = () => {
-		return;
+		ChatService.deleteCurrentChat(chat.id)
+			.then((data) => {
+				socket.emit('delete-chat', data);
+				setChatType(chat.type);
+				setShowChatOptions(false);
+			})
+			.catch((error) => {
+				console.error(error);
+			});
 	};
 
 	useEffect(() => {
@@ -51,8 +105,6 @@ const ChatHeader = ({ chat }) => {
 		}
 		searchInputRef.current.focus();
 	}, [searchInputRef.current]);
-
-	console.log(chat.type);
 
 	return (
 		<div id='chat-header-wapper'>
@@ -75,26 +127,49 @@ const ChatHeader = ({ chat }) => {
 			/>
 			<hr className='hr-theme-1' />
 			{showChatOptions ? (
-				<div id='settings'>
-					<div onClick={() => setShowAddFriendsModal(true)}>
+				<div className='settings-menu-theme-2'>
+					<div
+						className='settings-menu-item-theme-1'
+						onClick={() => {
+							setShowAddFriendsModal(true);
+							setTimeout(() => {
+								if (!searchInputRef.current) {
+									return;
+								}
+								searchInputRef.current.focus();
+							}, 100);
+						}}
+					>
 						<FontAwesomeIcon icon={['fas', 'user-plus']} className='fa-icon' />
-						<p>Add user to chat</p>
+						<p className='cursor-pointer user-select-none settings-menu-item-title-theme-1'>
+							Add user to chat
+						</p>
 					</div>
 
-					{chat.type === 'group' ? (
-						<div onClick={() => leaveChat()}>
+					{chatType === 'group' ? (
+						<div
+							className='settings-menu-item-theme-1'
+							onClick={() => leaveChat()}
+						>
 							<FontAwesomeIcon
 								icon={['fas', 'sign-out-alt']}
 								className='fa-icon'
 							/>
-							<p>Leave chat</p>
+							<p className='cursor-pointer user-select-none settings-menu-item-title-theme-1'>
+								Leave chat
+							</p>
 						</div>
 					) : null}
 
-					{chat.type === 'dual' ? (
-						<div onClick={() => deleteChat()}>
+					{chatType === 'dual' ? (
+						<div
+							className='settings-menu-item-theme-1'
+							onClick={() => deleteChat()}
+						>
 							<FontAwesomeIcon icon={['fas', 'trash']} className='fa-icon' />
-							<p>Delete chat</p>
+							<p className='cursor-pointer user-select-none settings-menu-item-title-theme-1'>
+								Delete chat
+							</p>
 						</div>
 					) : null}
 				</div>
@@ -105,11 +180,11 @@ const ChatHeader = ({ chat }) => {
 					click={() => setShowAddFriendsModal(false)}
 				>
 					<Fragment key='header'>
-						<h3>Add friend to group chat</h3>
+						<h3 className='user-select-none'>Add friend to group chat</h3>
 					</Fragment>
 
 					<Fragment key='body'>
-						<header className='search-for-friends'>
+						<header className='search-for-friends user-select-none'>
 							<p className='text-align-center'>
 								Find friends by typing their name bellow
 							</p>

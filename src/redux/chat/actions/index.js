@@ -115,3 +115,11 @@ export const createChat = (chat) => (dispatch) => {
 export const addUserToGroup = (data) => (dispatch) => {
 	dispatch({ type: ADD_USER_TO_GROUP, payload: data });
 };
+
+export const leaveCurrentChat = (data) => (dispatch) => {
+	dispatch({ type: LEAVE_CURRENT_CHAT, payload: data });
+};
+
+export const deleteCurrentChat = (chatId) => (dispatch) => {
+	dispatch({ type: DELETE_CURRENT_CHAT, payload: chatId });
+};

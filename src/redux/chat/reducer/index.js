@@ -63,7 +63,7 @@ const chatReducer = (state = initialState, action) => {
 			// eslint-disable-next-line no-unreachable
 			break;
 
-		case FRIENDS_ONLINE:
+		case FRIENDS_ONLINE: {
 			const chatsCopy = state.chats.map((chat) => {
 				return {
 					...chat,
@@ -85,6 +85,7 @@ const chatReducer = (state = initialState, action) => {
 			};
 			// eslint-disable-next-line no-unreachable
 			break;
+		}
 
 		case FRIEND_ONLINE: {
 			let currentChatCopy = { ...state.currentChat };
@@ -364,6 +365,60 @@ const chatReducer = (state = initialState, action) => {
 				currentChat: currentChatCopy,
 			};
 
+			// eslint-disable-next-line no-unreachable
+			break;
+		}
+
+		case LEAVE_CURRENT_CHAT: {
+			const { chatId, userId, currentUserId } = payload;
+
+			if (userId === currentUserId) {
+				const chatsCopy = state.chats.filter((chat) => {
+					return chat.id !== chatId;
+				});
+
+				return {
+					...state,
+					chats: chatsCopy,
+					currentChat: state.currentChat.id === chatId ? {} : state.currentChat,
+				};
+			} else {
+				const chatsCopy = state.chats.map((chat) => {
+					if (chatId === chat.id) {
+						return {
+							...chat,
+							Users: chat.Users.filter((user) => user.id !== userId),
+						};
+					}
+
+					return chat;
+				});
+
+				let currentChatCopy = { ...state.currentChat };
+				if (currentChatCopy.id === chatId) {
+					currentChatCopy = {
+						...currentChatCopy,
+						Users: currentChatCopy.Users.filter((user) => user.id !== userId),
+					};
+				}
+
+				return {
+					...state,
+					chats: chatsCopy,
+					currentChat: currentChatCopy,
+				};
+			}
+
+			// eslint-disable-next-line no-unreachable
+			break;
+		}
+
+		case DELETE_CURRENT_CHAT: {
+			return {
+				...state,
+				chats: state.chats.filter((chat) => chat.id !== payload),
+				currentChat: state.currentChat.id === payload ? {} : state.currentChat,
+			};
 			// eslint-disable-next-line no-unreachable
 			break;
 		}

@@ -3,7 +3,7 @@
 	align-items: center;
 	justify-content: space-between;
 	height: fit-content;
-	max-height: 5rem;
+	max-height: 7rem;
 	position: relative;
 
 	hr {
@@ -17,17 +17,19 @@
 	overflow-y: auto;
 	display: flex;
 	text-align: left;
-	line-height: 2.3rem;
-	margin-bottom: 1em;
+	line-height: 2.4rem;
 
 	h3 {
-		margin: 0 0.25em 0 0;
+		margin-right: 0.25em;
+		display: flex;
+		align-items: flex-end;
+		justify-content: flex-start;
 	}
 
 	.chatter-info {
 		display: flex;
 		margin-right: 0.5em;
-		min-width: 8rem;
+		min-width: fit-content;
 		padding: 0.5em 0;
 	}
 

@@ -21,36 +21,6 @@
   height: 100%;
   position: relative;
 }
-#messenger #messenger-wrap #settings {
-  border-radius: 0.5rem;
-  position: absolute;
-  right: 1.2rem;
-  top: 0.8rem;
-  padding: 0.25em;
-  border: 0.1rem solid #d9d9d9;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  z-index: 9;
-}
-#messenger #messenger-wrap #settings > div {
-  position: relative;
-  display: flex;
-  align-items: center;
-  padding: 0.25em;
-  cursor: pointer;
-}
-#messenger #messenger-wrap #settings > div .fa-icon {
-  position: relative;
-  font-size: 2rem;
-  color: var(--bg-main);
-  margin-right: 0.25em;
-  min-width: 1em;
-}
-#messenger #messenger-wrap #settings p {
-  margin: 0.25em 0;
-  color: #000;
-}
 #messenger #messenger-wrap > .fa-icon {
   font-size: 2rem;
   color: var(--bg-main);
