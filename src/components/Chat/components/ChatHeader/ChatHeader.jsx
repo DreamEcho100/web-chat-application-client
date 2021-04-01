@@ -120,7 +120,6 @@ const ChatHeader = ({ chat }) => {
 				: [],
 			chatType: chat.type,
 		};
-		console.log(data);
 		socket.emit('requesting-a-dual-video-call', data);
 	};
 
@@ -197,7 +196,7 @@ const ChatHeader = ({ chat }) => {
 							</p>
 						</div>
 					) : null}
-					{chat.type === 'dual' ? (
+					{false && chat.type === 'dual' ? (
 						<div
 							className='settings-menu-item-theme-1'
 							onClick={() => requestVideoCall()}

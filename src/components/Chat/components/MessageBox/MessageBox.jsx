@@ -59,10 +59,21 @@ const MessageBox = ({ chat }) => {
 			);
 		}
 
-		const limit =
-			senderTypingElement.current.offsetHeight +
-			parseFloat(getComputedStyle(senderTypingElement.current).padding) -
-			parseFloat(getComputedStyle(senderTypingElement.current).marginTop);
+		const limit = (() => {
+			const height = senderTypingElement.current.offsetHeight;
+			const padding = parseFloat(
+				getComputedStyle(senderTypingElement.current).padding
+			);
+			const marginTop = parseFloat(
+				getComputedStyle(senderTypingElement.current).marginTop
+			);
+
+			return (
+				(height ? height : 0) +
+				(padding ? padding : 0) +
+				(marginTop ? marginTop : 0)
+			);
+		})();
 
 		if (senderTyping.typing && currentScrollPosition >= scrolHeight - limit) {
 			if (
@@ -98,10 +109,19 @@ const MessageBox = ({ chat }) => {
 			return;
 		}
 
-		const limit =
-			newMessageElement.offsetHeight +
-			parseFloat(getComputedStyle(newMessageElement).padding) -
-			parseFloat(getComputedStyle(newMessageElement).marginTop);
+		const limit = (() => {
+			const height = newMessageElement.offsetHeight;
+			const padding = parseFloat(getComputedStyle(newMessageElement).padding);
+			const marginTop = parseFloat(
+				getComputedStyle(newMessageElement).marginTop
+			);
+
+			return (
+				(height ? height : 0) +
+				(padding ? padding : 0) +
+				(marginTop ? marginTop : 0)
+			);
+		})();
 
 		if (currentScrollPosition >= scrolHeight - limit) {
 			dispatch(setANewMessageSeen(true));

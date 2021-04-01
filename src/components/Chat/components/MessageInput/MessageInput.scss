@@ -39,11 +39,21 @@
 					height: 8rem !important;
 				}
 				.emoji-mart-preview-skins {
-					right: 1rem !important;
-					top: 5.5rem !important;
-					bottom: unset !important;
 				}
 			}
+		}
+	}
+
+	.notifications {
+		position: absolute;
+		top: -6rem;
+
+		.senderTyping,
+		.message-notification {
+			background-image: linear-gradient(180deg, var(--bg-dark), var(--bg-main));
+			padding: 0.5em;
+			border-radius: 1rem;
+			color: white;
 		}
 	}
 }
@@ -73,7 +83,7 @@
 		}
 	}
 
-	/*.message-notification {
+	.message-notification {
 		display: flex;
 		cursor: pointer;
 		border: 0.1rem solid var(--bg-main);
@@ -87,7 +97,7 @@
 			display: flex;
 			align-items: center;
 		}
-	}*/
+	}
 }
 #message-input {
 	--border-radius: 0.5rem;

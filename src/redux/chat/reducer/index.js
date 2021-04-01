@@ -231,14 +231,20 @@ const chatReducer = (state = initialState, action) => {
 			if (payload.typing) {
 				return {
 					...state,
-					senderTyping: payload,
+					senderTyping: {
+						...state.senderTyping,
+						...payload,
+					},
 					// scrollBottom: state.scrollBottom + 1,
 				};
 			}
 
 			return {
 				...state,
-				senderTyping: payload,
+				senderTyping: {
+					...state.senderTyping,
+					...payload,
+				},
 			};
 			// eslint-disable-next-line no-unreachable
 			break;

@@ -54,7 +54,7 @@ const Navbar = () => {
 			id='navbar'
 			className='card-shadow'
 		>
-			<Notifications />
+			{/*<Notifications />*/}
 			<h2 className='user-select-none'>Chat.io</h2>
 			<div id='profile-menu'>
 				<img

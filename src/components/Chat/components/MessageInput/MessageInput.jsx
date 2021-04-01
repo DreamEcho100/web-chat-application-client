@@ -123,7 +123,6 @@ const MessageInput = ({ chat }) => {
 	const showNewMessage = () => {
 		dispatch(incrementScroll());
 	};
-
 	return (
 		<div id='input-container'>
 			<div id='image-upload-container'>
@@ -175,6 +174,7 @@ const MessageInput = ({ chat }) => {
 				id='chat-image'
 				ref={fileUpload}
 				type='file'
+				style={{ display: 'none' }}
 				onChange={(event) => setImage(event.target.files[0])}
 			/>
 
@@ -187,8 +187,8 @@ const MessageInput = ({ chat }) => {
 						position: 'absolute',
 						zIndex: '10',
 						width: '35.3rem',
-						bottom: '5rem',
-						right: '2rem',
+						bottom: '100%',
+						right: '0rem',
 						maxWidth: '75vw',
 					}}
 					onSelect={selectEmoji}
@@ -198,7 +198,7 @@ const MessageInput = ({ chat }) => {
 			<div className='notifications'>
 				{senderTyping.typing &&
 				senderTyping.chatId === chat.id &&
-				senderTyping.msgBoxElement &&
+				/*senderTyping.msgBoxElement &&*/
 				!senderTyping.senderTypingElementNearlyInView ? (
 					<div className='senderTyping cursor-pointer'>
 						<p>
