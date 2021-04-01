@@ -44,4 +44,30 @@
 		border-radius: 1rem;
 		cursor: pointer;
 	}
+
+	#chat-image {
+		position: absolute;
+		visibility: hidden;
+		top: 0;
+		left: 0;
+		width: 0;
+		height: 0;
+		opacity: 0;
+	}
+
+	.notifications {
+		position: absolute;
+		top: 0%;
+		left: 0%;
+		width: 100%;
+		transform: translateY(-100%);
+		z-index: 9;
+		.message-notification,
+		.senderTyping {
+			width: fit-content;
+			background-color: var(--bg-main);
+			padding: 0.15em 0.25em;
+			border-radius: 1rem;
+		}
+	}
 }

@@ -1,5 +1,4 @@
 import ChatService from '../../../services/chatService';
-import chatReducer from '../reducer';
 import {
 	FETCH_CHATS,
 	SET_CURRENT_CHAT,
@@ -17,6 +16,7 @@ import {
 	ADD_USER_TO_GROUP,
 	LEAVE_CURRENT_CHAT,
 	DELETE_CURRENT_CHAT,
+	A_NEW_NOTIFICATION,
 } from '../types';
 
 export const fetchChats = () => (dispatch) => {
@@ -122,4 +122,8 @@ export const leaveCurrentChat = (data) => (dispatch) => {
 
 export const deleteCurrentChat = (chatId) => (dispatch) => {
 	dispatch({ type: DELETE_CURRENT_CHAT, payload: chatId });
+};
+
+export const AddANewNotification = (data) => (dispatch) => {
+	dispatch({ type: A_NEW_NOTIFICATION, payload: data });
 };

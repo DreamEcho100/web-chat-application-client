@@ -20,6 +20,7 @@ const ChatHeader = ({ chat }) => {
 	const searchInputRef = useRef();
 
 	const socket = useSelector((state) => state.chatReducer.socket);
+	const user = useSelector((state) => state.authReducer.user);
 
 	let searchFriendsSetTimeoutId;
 
@@ -99,6 +100,30 @@ const ChatHeader = ({ chat }) => {
 			});
 	};
 
+	const requestVideoCall = () => {
+		// if (chat.type !== 'dual') {
+		// 	return;
+		// }
+		const data = {
+			type: 'requesting-a-dual-video-call',
+			message: `Your friend ${user.firstName} ${user.lastName} is requesting a video call.`,
+			chatId: chat.id,
+			fromUserId: user.id,
+			toUsersId: chat.Users.map((user) => {
+				return user.status === 'online';
+			})
+				? chat.Users.map((user) => {
+						if (user.status === 'online') {
+							return user.id;
+						}
+				  })
+				: [],
+			chatType: chat.type,
+		};
+		console.log(data);
+		socket.emit('requesting-a-dual-video-call', data);
+	};
+
 	useEffect(() => {
 		if (!searchInputRef.current) {
 			return;
@@ -169,6 +194,20 @@ const ChatHeader = ({ chat }) => {
 							<FontAwesomeIcon icon={['fas', 'trash']} className='fa-icon' />
 							<p className='cursor-pointer user-select-none settings-menu-item-title-theme-1'>
 								Delete chat
+							</p>
+						</div>
+					) : null}
+					{chat.type === 'dual' ? (
+						<div
+							className='settings-menu-item-theme-1'
+							onClick={() => requestVideoCall()}
+						>
+							<FontAwesomeIcon
+								icon={['fas', 'user-plus']}
+								className='fa-icon'
+							/>
+							<p className='cursor-pointer user-select-none settings-menu-item-title-theme-1'>
+								Video Call
 							</p>
 						</div>
 					) : null}

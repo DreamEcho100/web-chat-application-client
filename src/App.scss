@@ -294,6 +294,23 @@ body {
 
 /*------------------------*/
 
+@keyframes notificationPopFromLeft {
+	0% {
+		transform: translateX(-100%);
+	}
+	50% {
+		transform: translateX(-15%);
+	}
+	75% {
+		transform: translateX(-35%);
+	}
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+/*------------------------*/
+
 @media screen and (max-width: 800px) {
 	:root {
 		font-size: 55%;

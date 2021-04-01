@@ -15,6 +15,7 @@ import {
 	ADD_USER_TO_GROUP,
 	LEAVE_CURRENT_CHAT,
 	DELETE_CURRENT_CHAT,
+	A_NEW_NOTIFICATION,
 } from '../types';
 
 const initialState = {
@@ -34,6 +35,7 @@ const initialState = {
 		senderTypingElement: null,
 		senderTypingElementNearlyInView: true,
 	},
+	mainNotifacations: [],
 };
 
 const chatReducer = (state = initialState, action) => {
@@ -418,6 +420,16 @@ const chatReducer = (state = initialState, action) => {
 				...state,
 				chats: state.chats.filter((chat) => chat.id !== payload),
 				currentChat: state.currentChat.id === payload ? {} : state.currentChat,
+			};
+			// eslint-disable-next-line no-unreachable
+			break;
+		}
+
+		case A_NEW_NOTIFICATION: {
+			const mainNotifacationsCopy = [...state.mainNotifacations];
+			return {
+				...state,
+				mainNotifacations: [payload, ...mainNotifacationsCopy],
 			};
 			// eslint-disable-next-line no-unreachable
 			break;

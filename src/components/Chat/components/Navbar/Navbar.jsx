@@ -6,6 +6,7 @@ import './Navbar.css';
 
 import { logout, updateProfile } from '../../../../redux/auth/actions';
 import Modal from '../../../Modal/Modal';
+import Notifications from '../Notifications/Notifications';
 
 const Navbar = () => {
 	const dispatch = useDispatch();
@@ -48,7 +49,12 @@ const Navbar = () => {
 	};
 
 	return (
-		<header id='navbar' className='card-shadow'>
+		<header
+			style={{ position: 'relative' }}
+			id='navbar'
+			className='card-shadow'
+		>
+			<Notifications />
 			<h2 className='user-select-none'>Chat.io</h2>
 			<div id='profile-menu'>
 				<img

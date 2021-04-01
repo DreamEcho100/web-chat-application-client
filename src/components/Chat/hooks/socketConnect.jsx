@@ -12,6 +12,7 @@ import {
 	addUserToGroup,
 	leaveCurrentChat,
 	deleteCurrentChat,
+	AddANewNotification,
 } from '../../../redux/chat/actions';
 import BACK_END_URL from '../../../services/BACK_END_URL';
 
@@ -66,6 +67,11 @@ const useSocket = (user, dispatch) => {
 
 				socket.on('delete-chat', (data) => {
 					dispatch(deleteCurrentChat(data));
+				});
+
+				socket.on('requesting-a-dual-video-call', (data) => {
+					console.log(data);
+					dispatch(AddANewNotification(data));
 				});
 			})
 			.catch((error) => console.error(error));
