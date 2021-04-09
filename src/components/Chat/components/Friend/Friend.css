@@ -1,24 +1,41 @@
 .friend-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 0.5em 0.25em;
   cursor: pointer;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
   min-width: fit-content;
 }
+
 @media (min-width: 800px) {
   .friend-list {
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 }
+
 .friend-list > div {
   /*display: flex;
-  align-items: center;
-  justify-content: space-around;*/
+		align-items: center;
+		justify-content: space-around;*/
+  display: -ms-grid;
   display: grid;
-  grid-template-columns: 5rem auto auto;
+  -ms-grid-columns: 5rem auto auto;
+      grid-template-columns: 5rem auto auto;
   width: 100%;
 }
+
 .friend-list > div h4 {
   font-size: calc(var(--header4) - 1rem);
   max-width: 15rem;
@@ -26,6 +43,7 @@
   word-break: unset;
   text-overflow: ellipsis;
 }
+
 .friend-list > div h5 {
   font-size: calc(var(--header5) - 1.25rem);
   max-width: 10rem;
@@ -34,33 +52,53 @@
   word-break: break-all;
   text-overflow: ellipsis;
 }
+
 .friend-list > div img {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
   width: 5rem;
   height: 5rem;
 }
+
 .friend-list > div .friend-info {
   margin: 0 0.5em;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-self: center;
-  flex-direction: column;
+  -ms-flex-item-align: center;
+      align-self: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
+
 .friend-list .friend-status {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
+
 .friend-list .friend-status span {
   width: 1.2rem;
   height: 1.2rem;
   border-radius: 50%;
 }
+
 .friend-list .friend-status .online {
   background-color: var(--success);
 }
+
 .friend-list .friend-status .offline {
   background-color: var(--danger);
 }
-
 /*# sourceMappingURL=Friend.css.map */

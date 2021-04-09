@@ -1,37 +1,63 @@
 #navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   height: 6rem;
   background-color: var(--bg-main);
   padding: 0 0.25em;
 }
+
 #navbar > h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
   color: white;
 }
+
 #navbar .fa-icon {
   color: white;
   margin-left: 0.25em;
 }
+
 #navbar #profile-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   height: 100%;
   position: relative;
 }
+
 #navbar #profile-menu > p {
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
   color: white;
   margin: 0 0.25em;
 }
+
 #navbar #profile-menu > img {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   color: white;
-  align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
   margin-right: 0.25em;
   border-radius: 1em;
   width: 4rem;
@@ -39,8 +65,8 @@
   border: 1px solid #333;
   border-radius: 50%;
 }
+
 #navbar #profile-menu .fa-icon * {
   color: white;
 }
-
 /*# sourceMappingURL=Navbar.css.map */

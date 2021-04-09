@@ -1,26 +1,39 @@
 #messenger {
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 0.75em;
-  flex-grow: 2;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
   background-color: var(--bg-gray);
   /*hr {
-  	border-top: 0.1rem solid #cfcfcf;
-  	width: 100%;
-  	margin-bottom: 0.5em;
-  }*/
+		border-top: 0.1rem solid #cfcfcf;
+		width: 100%;
+		margin-bottom: 0.5em;
+	}*/
 }
+
 @media screen and (max-width: 800px) {
   #messenger {
     margin: 1em 0;
   }
 }
+
 #messenger #messenger-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   height: 100%;
   position: relative;
 }
+
 #messenger #messenger-wrap > .fa-icon {
   font-size: 2rem;
   color: var(--bg-main);
@@ -29,6 +42,7 @@
   top: 0;
   cursor: pointer;
 }
+
 #messenger #delete-chat {
   background-color: var(--success);
   border: none;
@@ -39,4 +53,33 @@
   cursor: pointer;
 }
 
+#messenger #chat-image {
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+#messenger .notifications {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  z-index: 9;
+}
+
+#messenger .notifications .message-notification,
+#messenger .notifications .senderTyping {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: var(--bg-main);
+  padding: 0.15em 0.25em;
+  border-radius: 1rem;
+}
 /*# sourceMappingURL=Messenger.css.map */
