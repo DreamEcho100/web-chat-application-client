@@ -1,9 +1,9 @@
 import { LOGIN, REGISTER, LOGOUT, UPDATE_PROFILE } from '../types';
 
 const initialState = {
-	user: [], // JSON.parse(localStorage.getItem('oitahcUser')) || {},
-	token: '', // localStorage.getItem('oitahcToken') || '',
-	isLoggedIn: false, // !!localStorage.getItem('oitahcToken'),
+	user: JSON.parse(localStorage.getItem('oitahcUser')) || {}, // {} // [], 
+	token: localStorage.getItem('oitahcToken') || '', // '', 
+	isLoggedIn: !!localStorage.getItem('oitahcToken'), // false, 
 };
 
 const authReducer = (state = initialState, action) => {
